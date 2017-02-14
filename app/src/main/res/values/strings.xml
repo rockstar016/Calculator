@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="num_1">1</string>
+    <string name="num_2">2</string>
+    <string name="num_3">3</string>
+    <string name="num_4">4</string>
+    <string name="num_5">5</string>
+    <string name="num_6">6</string>
+    <string name="num_7">7</string>
+    <string name="num_8">8</string>
+    <string name="num_9">9</string>
+    <string name="num_0">0</string>
+    <string name="oper_percentage">%</string>
+    <string name="oper_brack1">(</string>
+    <string name="oper_brack2">)</string>
+    <string name="oper_c">C</string>
+    <string name="oper_plus_minus">+/-</string>
+    <string name="oper_point">.</string>
+    <string name="oper_mc">mc</string>
+    <string name="oper_mplus">m+</string>
+    <string name="oper_mminus">m-</string>
+    <string name="oper_mrecord">mr</string>
+    <string name="oper_divid">÷</string>
+    <string name="oper_multiple">X</string>
+    <string name="oper_minus">-</string>
+    <string name="oper_plus">+</string>
+    <string name="oper_equals">=</string>
+
+
+    <string name="sin">sin</string>
+    <string name="cos">cos</string>
+    <string name="tan">tan</string>
+    <string name="naturalLog">ln</string>
+    <string name="hyperbolicSine">sinh</string>
+    <string name="hyperbolicCosine">cosh</string>
+    <string name="hyperbolicTan">tanh</string>
+    <string name="log">log</string>
+    <string name="Mod">%</string>
+    <string name="inverse">1/x</string>
+    <string name="factorial">x!</string>>
+    <string name="sqrt">√</string>
+    <string name="cuberoot">\u221B</string>
+    <string name="square">x²</string>
+    <string name="cube">x\u00B3</string>
+    <string name="tenpow">10\u207F</string>
+    <string name="sininv">sin\u207B\u00B9</string>
+    <string name="sinhinv">sinh\u207B\u00B9</string>
+    <string name="cosinv">cos\u207B\u00B9</string>
+    <string name="coshinv">cosh\u207B\u00B9</string>
+    <string name="taninv">tan\u207B\u00B9</string>
+    <string name="tanhinv">tanh\u207B\u00B9</string>
+    <string name="logbase2">log2</string>
+    <string name="posneg">±</string>
+    <string name="arrow">↑</string>
+    <string name="xpown">xⁿ</string>
+    <string name="epown">eⁿ</string>
+    <string name="pi">π</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="show_status_bar">Show Status bar</string>
+    <string name="vibration">Vibration</string>
+    <string name="limit_precision">Limit Precision</string>
+    <string name="show_memory_keys">Show memory keys</string>
+    <string name="thousand_seperator">Thousand seperator</string>
+    <string name="scientific_calculator">Scientific Calculator</string>
+</resources>

@@ -1,0 +1,348 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="calc.rock.calculator.HomeScreen.NormalCalculator">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+        <calc.rock.calculator.Customs.CustomOperatorButton1
+            android:text="@string/oper_mc"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:layout_weight="1"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_m_clear"
+            />
+        <calc.rock.calculator.Customs.CustomOperatorButton1
+            android:text="@string/oper_mplus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_m_plus" />
+        <calc.rock.calculator.Customs.CustomOperatorButton1
+            android:text="@string/oper_mminus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_m_minus" />
+        <calc.rock.calculator.Customs.CustomOperatorButton1
+            android:text="@string/oper_mrecord"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_m_read" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+        <calc.rock.calculator.Customs.CustomImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:src="@drawable/ic_settings_black_24dp"
+            android:id="@+id/bt_setting" />
+
+        <calc.rock.calculator.Customs.CustomImageButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:src="@drawable/ic_backspace_black_24dp"
+            android:id="@+id/bt_backspace" />
+
+        <calc.rock.calculator.Customs.CustomCButton
+            android:text="@string/oper_c"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:layout_weight="1"
+            android:id="@+id/bt_clear"
+            android:textSize="@dimen/normal_font_size" />
+        <calc.rock.calculator.Customs.CustomOperatorButton1
+            android:textSize="@dimen/normal_font_size"
+            android:text="@string/oper_divid"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:layout_weight="1"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_divide" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+
+
+        <calc.rock.calculator.Customs.CustomNumberButton
+            android:text="@string/oper_percentage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_percentage"
+            android:textSize="@dimen/normal_font_size" />
+        <calc.rock.calculator.Customs.CustomNumberButton
+            android:text="@string/oper_brack1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+
+            android:id="@+id/bt_brack_open"
+            android:textSize="@dimen/normal_font_size" />
+        <calc.rock.calculator.Customs.CustomNumberButton
+            android:text="@string/oper_brack2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+
+            android:id="@+id/bt_brack_close"
+            android:textSize="@dimen/normal_font_size" />
+        <calc.rock.calculator.Customs.CustomOperatorButton1
+            android:textSize="@dimen/normal_font_size"
+            android:text="@string/oper_multiple"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_multiple" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+        <calc.rock.calculator.Customs.CustomNumberButton
+            android:text="@string/num_7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:layout_weight="1"
+            android:id="@+id/bt_num_7"
+            android:textSize="@dimen/normal_font_size" />
+        <calc.rock.calculator.Customs.CustomNumberButton
+            android:text="@string/num_8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:layout_weight="1"
+            android:id="@+id/bt_num_8"
+            android:textSize="@dimen/normal_font_size" />
+        <calc.rock.calculator.Customs.CustomNumberButton
+            android:text="@string/num_9"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:layout_weight="1"
+            android:id="@+id/bt_num_9"
+            android:textSize="@dimen/normal_font_size" />
+        <calc.rock.calculator.Customs.CustomOperatorButton1
+            android:text="@string/oper_minus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_num_minus"
+            android:textSize="@dimen/normal_font_size" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <calc.rock.calculator.Customs.CustomNumberButton
+            android:text="@string/num_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:layout_weight="1"
+            android:id="@+id/bt_num_4"
+            android:textSize="@dimen/normal_font_size" />
+        <calc.rock.calculator.Customs.CustomNumberButton
+            android:text="@string/num_5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:layout_weight="1"
+            android:id="@+id/bt_num_5"
+            android:textSize="@dimen/normal_font_size" />
+        <calc.rock.calculator.Customs.CustomNumberButton
+            android:text="@string/num_6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_num_6"
+            android:textSize="@dimen/normal_font_size" />
+        <calc.rock.calculator.Customs.CustomOperatorButton1
+            android:textSize="@dimen/normal_font_size"
+            android:text="@string/oper_plus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_num_plus" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="3">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <calc.rock.calculator.Customs.CustomNumberButton
+                    android:text="@string/num_1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+
+                    android:elevation="0dp"
+                    android:stateListAnimator="@null"
+
+                    android:id="@+id/bt_num_1"
+                    android:textSize="18sp"
+                    android:layout_weight="1" />
+                <calc.rock.calculator.Customs.CustomNumberButton
+                    android:text="@string/num_2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+
+                    android:elevation="0dp"
+                    android:stateListAnimator="@null"
+
+                    android:id="@+id/bt_num_2"
+                    android:textSize="@dimen/normal_font_size"
+                    android:layout_weight="1" />
+                <calc.rock.calculator.Customs.CustomNumberButton
+                    android:text="@string/num_3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+
+                    android:elevation="0dp"
+                    android:stateListAnimator="@null"
+
+                    android:id="@+id/bt_num_3"
+                    android:textSize="@dimen/normal_font_size"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <calc.rock.calculator.Customs.CustomNumberButton
+                    android:text="@string/oper_plus_minus"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+
+                    android:elevation="0dp"
+                    android:stateListAnimator="@null"
+                    android:id="@+id/bt_plus_minus"
+                    android:textSize="@dimen/normal_font_size"
+                    android:layout_weight="1" />
+                <calc.rock.calculator.Customs.CustomNumberButton
+                    android:text="@string/num_0"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+
+                    android:elevation="0dp"
+                    android:stateListAnimator="@null"
+                    android:id="@+id/bt_num_0"
+                    android:textSize="@dimen/normal_font_size"
+                    android:layout_weight="1" />
+                <calc.rock.calculator.Customs.CustomNumberButton
+                    android:text="@string/oper_point"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:elevation="0dp"
+                    android:stateListAnimator="@null"
+                    android:id="@+id/bt_point"
+                    android:textSize="@dimen/normal_font_size"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <calc.rock.calculator.Customs.CustomOperatorButton1
+            android:textSize="@dimen/normal_font_size"
+            android:text="@string/oper_equals"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:id="@+id/bt_equal" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width = "match_parent"
+        android:background="@color/colorPink"
+        android:layout_height="5dp"></View>
+</LinearLayout>
