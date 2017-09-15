@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2016 Jared Rummler <jared.rummler@gmail.com>
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:divider="?android:attr/dividerHorizontal"
+    android:orientation="vertical"
+    android:showDividers="middle">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="25dp">
+
+        <com.jrummyapps.android.colorpicker.ColorPickerView
+            android:id="@id/cpv_color_picker_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:alphaChannelVisible="true"/>
+
+        <LinearLayout
+            android:id="@+id/textColorLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignLeft="@id/cpv_color_picker_view"
+            android:layout_alignRight="@id/cpv_color_picker_view"
+            android:layout_below="@id/cpv_color_picker_view"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+                <TextView
+                    android:id="@+id/oldColorValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|bottom"
+                    android:text=""
+                    android:textSize="20sp"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="bottom"
+                android:text="→"
+                android:textSize="20sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+                <TextView
+                    android:id="@+id/colorValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|bottom"
+                    android:layout_weight="0.1"
+                    android:lines="@android:integer/config_shortAnimTime"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignLeft="@id/textColorLayout"
+            android:layout_alignRight="@id/textColorLayout"
+            android:layout_below="@id/textColorLayout"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2">
+                <com.jrummyapps.android.colorpicker.ColorPanelView
+                    android:id="@id/cpv_color_panel_old"
+                    android:layout_width="40dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.1"
+                    app:borderColor="#0099cc"
+                    app:colorShape="square"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="→"
+                    android:textSize="20sp"/>
+
+                <com.jrummyapps.android.colorpicker.ColorPanelView
+                    android:id="@id/cpv_color_panel_new"
+                    android:layout_width="40dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.1"
+                    app:colorShape="square"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6">
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonbar"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancelButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel"/>
+
+        <Button
+            android:id="@+id/okButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok"/>
+    </LinearLayout>
+
+</LinearLayout>
