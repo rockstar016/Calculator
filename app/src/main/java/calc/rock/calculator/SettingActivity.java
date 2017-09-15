@@ -1,42 +1,47 @@
 package calc.rock.calculator;
 
+import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.SparseArray;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import calc.rock.calculator.SettingScreen.SettingPagerAdapter;
+import calc.rock.calculator.SettingScreen.ThemeFragment;
 import calc.rock.calculator.Utils.Constants;
 import calc.rock.calculator.Utils.ThemeManagement;
 
 public class SettingActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
     ViewPager pager;
-    SettingPagerAdapter adapter;
     TabLayout tabLayout;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initThemes();
 
         setContentView(R.layout.activity_setting);
         pager = (ViewPager)findViewById(R.id.vp_settings);
         tabLayout = (TabLayout) findViewById(R.id.tablayout_setting);
+
+        initThemes();
         pagerInit();
     }
     private void initThemes(){
-        int currentTheme = ThemeManagement.getTheme(this);
-        if(currentTheme == Constants.GRAY_THEME){
-            setTheme(R.style.AppTheme_GrayTheme);
-        }
-        else if(currentTheme == Constants.BLUE_THEME){
-            setTheme(R.style.AppTheme_BlueTheme);
-        }
+
     }
     @Override
     public void onBackPressed() {
@@ -85,4 +90,5 @@ public class SettingActivity extends AppCompatActivity implements TabLayout.OnTa
     public void onTabReselected(TabLayout.Tab tab) {
 
     }
+
 }

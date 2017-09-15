@@ -14,16 +14,18 @@
             android:stateListAnimator="@null"
             android:text="@string/oper_mc"
             android:textAllCaps="false"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_m_c"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:alpha="0.7"
+            />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
             android:layout_height="match_parent"
             android:elevation="0dp"
             android:stateListAnimator="@null"
             android:text="@string/sin"
             android:textAllCaps="false"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_sin"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -32,7 +34,7 @@
             android:stateListAnimator="@null"
             android:textAllCaps="false"
             android:text="@string/cos"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_cos"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -41,34 +43,38 @@
             android:stateListAnimator="@null"
             android:textAllCaps="false"
             android:text="@string/tan"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_tan"
             android:layout_weight="1" />
+
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
             android:layout_height="match_parent"
             android:elevation="0dp"
             android:stateListAnimator="@null"
             android:textAllCaps="false"
             android:text="@string/sininv"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_arc_sin"
             android:layout_weight="1" />
+
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
             android:layout_height="match_parent"
             android:elevation="0dp"
             android:stateListAnimator="@null"
             android:textAllCaps="false"
             android:text="@string/cosinv"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_arc_cos"
             android:layout_weight="1" />
-        <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
+
+        <calc.rock.calculator.Customs.CustomOperateButton2
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:elevation="0dp"
             android:stateListAnimator="@null"
             android:textAllCaps="false"
             android:text="@string/taninv"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_arc_tan"
             android:layout_weight="1" />
     </LinearLayout>
@@ -77,26 +83,29 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
-        <calc.rock.calculator.Customs.CustomOperatorButton1 android:layout_width="0dp"
+
+        <calc.rock.calculator.Customs.CustomOperatorButton1
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-
-
             android:elevation="0dp"
             android:stateListAnimator="@null"
             android:textAllCaps="false"
             android:text="@string/oper_mplus"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
+            android:layout_weight="1"
             android:id="@+id/bt_m_plus"
-            android:layout_weight="1" />
+            android:alpha="0.7"
+            />
+
+
+
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
             android:layout_height="match_parent"
-
-
             android:elevation="0dp"
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/hyperbolicSine"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_sinh"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -107,7 +116,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/hyperbolicCosine"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_cosh"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -118,29 +127,26 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/hyperbolicTan"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_tanh"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
             android:layout_height="match_parent"
-
-
             android:elevation="0dp"
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/sinhinv"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_arc_sinh"
             android:layout_weight="1" />
+
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
             android:layout_height="match_parent"
-
-
             android:elevation="0dp"
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/coshinv"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_arc_cosh"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -151,7 +157,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/tanhinv"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_arc_tanh"
             android:layout_weight="1" />
 
@@ -170,9 +176,10 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/oper_mminus"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_m_minus"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:alpha="0.7"/>
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
             android:layout_height="match_parent"
 
@@ -181,7 +188,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/pi"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_pi"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -192,7 +199,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/epown"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_e_pow_n"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -203,7 +210,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/xpown"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_x_pow_n"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -214,7 +221,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/square"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_x_pow_2"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -225,7 +232,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/cube"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_x_pow_3"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -236,7 +243,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/inverse"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_inverse_x"
             android:layout_weight="1" />
     </LinearLayout>
@@ -253,9 +260,10 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/oper_mrecord"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_m_read"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:alpha="0.7"/>
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
             android:layout_height="match_parent"
 
@@ -264,7 +272,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/log"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_log"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -275,19 +283,17 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/naturalLog"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_ln"
             android:layout_weight="1" />
 
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
             android:layout_height="match_parent"
-
-
             android:elevation="0dp"
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/logbase2"
-            android:textSize="10sp"
+            android:textSize="@dimen/small_font_size"
             android:id="@+id/bt_log2"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -298,7 +304,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/factorial"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_factorial"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -309,7 +315,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/sqrt"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_sqrt"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperateButton2 android:layout_width="0dp"
@@ -320,7 +326,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/cuberoot"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_cubic_sqrt"
             android:layout_weight="1" />
 
@@ -349,7 +355,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/num_7"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_7"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
@@ -360,7 +366,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/num_8"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_8"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
@@ -371,7 +377,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/num_9"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_9"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomCButton android:layout_width="0dp"
@@ -382,7 +388,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/oper_c"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_c"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomImageButton android:layout_width="0dp"
@@ -411,7 +417,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/oper_percentage"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_percentage"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
@@ -422,7 +428,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/num_4"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_4"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
@@ -433,7 +439,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/num_5"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_5"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
@@ -444,7 +450,7 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/num_6"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_6"
             android:layout_weight="1" />
         <calc.rock.calculator.Customs.CustomOperatorButton1 android:layout_width="0dp"
@@ -455,9 +461,10 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/oper_multiple"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_multiple"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:alpha="0.7"/>
         <calc.rock.calculator.Customs.CustomOperatorButton1 android:layout_width="0dp"
             android:layout_height="match_parent"
 
@@ -466,9 +473,10 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/oper_divid"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_divide"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:alpha="0.7"/>
 
     </LinearLayout>
     <LinearLayout
@@ -493,7 +501,7 @@
                     android:textAllCaps="false"
                     android:stateListAnimator="@null"
                     android:text="@string/oper_brack1"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/normal_font_size"
                     android:id="@+id/bt_bracket_open"
                     android:layout_weight="1" />
                 <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
@@ -504,7 +512,7 @@
                     android:textAllCaps="false"
                     android:stateListAnimator="@null"
                     android:text="@string/num_1"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/normal_font_size"
                     android:id="@+id/bt_1"
                     android:layout_weight="1" />
                 <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
@@ -515,7 +523,7 @@
                     android:textAllCaps="false"
                     android:stateListAnimator="@null"
                     android:text="@string/num_2"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/normal_font_size"
                     android:id="@+id/bt_2"
                     android:layout_weight="1" />
                 <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
@@ -526,7 +534,7 @@
                     android:textAllCaps="false"
                     android:stateListAnimator="@null"
                     android:text="@string/num_3"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/normal_font_size"
                     android:id="@+id/bt_3"
                     android:layout_weight="1" />
                 <calc.rock.calculator.Customs.CustomOperatorButton1 android:layout_width="0dp"
@@ -537,9 +545,10 @@
                     android:textAllCaps="false"
                     android:stateListAnimator="@null"
                     android:text="@string/oper_minus"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/normal_font_size"
                     android:id="@+id/bt_minus"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:alpha="0.7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -553,20 +562,20 @@
                     android:textAllCaps="false"
                     android:stateListAnimator="@null"
                     android:text="@string/oper_brack2"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/normal_font_size"
                     android:id="@+id/bt_bracket_close"
                     android:layout_weight="1" />
-                <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
+                <calc.rock.calculator.Customs.CustomNumberButton
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-
-
                     android:elevation="0dp"
                     android:textAllCaps="false"
                     android:stateListAnimator="@null"
                     android:text="@string/oper_plus_minus"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/normal_font_size"
                     android:id="@+id/bt_plus_minus"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
+
                 <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
                     android:layout_height="match_parent"
 
@@ -575,9 +584,10 @@
                     android:textAllCaps="false"
                     android:stateListAnimator="@null"
                     android:text="@string/num_0"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/normal_font_size"
                     android:id="@+id/bt_0"
                     android:layout_weight="1" />
+
                 <calc.rock.calculator.Customs.CustomNumberButton android:layout_width="0dp"
                     android:layout_height="match_parent"
 
@@ -586,7 +596,7 @@
                     android:textAllCaps="false"
                     android:stateListAnimator="@null"
                     android:text="@string/oper_point"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/normal_font_size"
                     android:id="@+id/bt_point"
                     android:layout_weight="1" />
                 <calc.rock.calculator.Customs.CustomOperatorButton1 android:layout_width="0dp"
@@ -597,9 +607,10 @@
                     android:textAllCaps="false"
                     android:stateListAnimator="@null"
                     android:text="@string/oper_plus"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/normal_font_size"
                     android:id="@+id/bt_plus"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:alpha="0.7"/>
             </LinearLayout>
         </LinearLayout>
         <calc.rock.calculator.Customs.CustomOperatorButton1 android:layout_width="0dp"
@@ -608,9 +619,10 @@
             android:textAllCaps="false"
             android:stateListAnimator="@null"
             android:text="@string/oper_equals"
-            android:textSize="10sp"
+            android:textSize="@dimen/normal_font_size"
             android:id="@+id/bt_equal"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:alpha="0.7"/>
     </LinearLayout>
 
 </LinearLayout>

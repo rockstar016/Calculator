@@ -1,9 +1,10 @@
 package calc.rock.calculator.SettingScreen;
 
-import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import java.lang.ref.WeakReference;
 
 /**
  * Created by rock on 2/14/17.
@@ -11,6 +12,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class SettingPagerAdapter extends FragmentStatePagerAdapter {
     int tab_count;
+    final WeakReference<Fragment>[] m_fragments = null;
+
     public SettingPagerAdapter(FragmentManager fm, int tabCount) {
         super(fm);
         this.tab_count = tabCount;
@@ -18,7 +21,8 @@ public class SettingPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        Fragment f;
+        Fragment f = null;
+
         switch (position){
             case 0:
                 //theme
@@ -28,14 +32,10 @@ public class SettingPagerAdapter extends FragmentStatePagerAdapter {
                 f = SettingsFragment.newInstance("","");
                 //setting
                 break;
-            case 2:
-                //advance
-                f = AdvancedFragment.newInstance("","");
-                break;
-            default:
-                f = ThemeFragment.newInstance("","");
+
         }
         return f;
+
     }
 
     @Override

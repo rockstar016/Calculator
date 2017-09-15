@@ -1,6 +1,5 @@
 package calc.rock.calculator.SettingScreen;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v7.widget.RecyclerView;
@@ -12,9 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-
-
 
 import java.util.List;
 
@@ -36,8 +32,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public FrameLayout container;
         public MyViewHolder(View view) {
             super(view);
-            thumbnail = (ImageView) view.findViewById(R.id.img_theme_content);
-            container = (FrameLayout) view.findViewById(R.id.item_main_container);
+
         }
     }
 
@@ -56,8 +51,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         int image = images.get(position).getThemeImage();
-        holder.thumbnail.setImageResource(image);
-        holder.container.setBackgroundColor(fetchPrimaryColor());
+//        holder.thumbnail.setImageResource(image);
+//        holder.container.setBackgroundColor(fetchPrimaryColor());
     }
 
     private int fetchAccentColor() {

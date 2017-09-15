@@ -8,10 +8,7 @@
     android:orientation="vertical"
     tools:context="calc.rock.calculator.SettingActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="?attr/colorButtonNormal"></FrameLayout>
+
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,20 +17,16 @@
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="THEMES"
+            android:text="@string/theme"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/tab_theme" />
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SETTINGS"
+            android:text="@string/setting"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/tab_settings" />
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ADVANCED"
-            android:id="@+id/tab_advance" />
     </android.support.design.widget.TabLayout>
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"

@@ -16,20 +16,20 @@ public class ThemeManagement {
         ed.commit();
     }
 
-    public static int getTheme(Context context){
+    public static int getTheme(Context context,String  storeKey,int baseColor){
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        return sp.getInt(Constants.CURRENT_THEME, Constants.GRAY_THEME);
+        return sp.getInt(storeKey, baseColor);
     }
 
-    public static void setCalculator(Context context, int theme){
+    public static void setCalculator(Context context, String stroeKey,int theme){
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor ed = sp.edit();
-        ed.putInt(Constants.CURRENT_CALCULATOR, theme);
+        ed.putInt(stroeKey, theme);
         ed.commit();
     }
 
-    public static int getCalculator(Context context){
+    public static int getCalculator(Context context,String obtainkey){
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        return sp.getInt(Constants.CURRENT_CALCULATOR, Constants.NORMAL_CALC);
+        return sp.getInt(obtainkey, Constants.NORMAL_CALC);
     }
 }

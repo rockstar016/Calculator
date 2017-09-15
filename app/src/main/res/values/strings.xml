@@ -56,12 +56,21 @@
     <string name="epown">eⁿ</string>
     <string name="pi">π</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="show_status_bar">Show Status bar</string>
     <string name="vibration">Vibration</string>
-    <string name="limit_precision">Limit Precision</string>
     <string name="show_memory_keys">Show memory keys</string>
-    <string name="thousand_seperator">Thousand seperator</string>
+    <string name="thousand_seperator">Thousand separator</string>
     <string name="scientific_calculator">Scientific Calculator</string>
+
+
+    <!-- colors- -->
+    <string name="textcolor">Text Color</string>
+    <string name="ColorRest">RESTORE DEFAULTS</string>
+    <string name="backgroundColor">Background color</string>
+    <string name="primarycolor">Primary color</string>
+    <string name="setting">SETTING</string>
+    <string name="theme">THEME</string>
+
+    <string name="admob_interstitial_id">ca-app-pub-7505360572028906/6626107670</string>
+    <!--<string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>-->
+
 </resources>

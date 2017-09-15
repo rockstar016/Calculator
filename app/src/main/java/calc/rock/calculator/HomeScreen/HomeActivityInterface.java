@@ -6,4 +6,9 @@ package calc.rock.calculator.HomeScreen;
 
 public interface HomeActivityInterface {
     void onClickSettingButton();
+    void onClickNumberButton(String inputNUmber);
+    void onClickOperationButton(char operation);
+    void onClickMemoryKeyButton(String inputMemkey);
+    void onClickSpecialButton(String specialOperator);
+    void onClickEqualButton();
 }

@@ -9,24 +9,14 @@
     tools:context="calc.rock.calculator.HomeActivity">
 
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@android:color/darker_gray">
 
-        <TextView
-            android:text="Advertise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView" />
-    </FrameLayout>
 
 
     <calc.rock.calculator.Customs.CustomMemoryTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txt_memory_view"
-        android:textSize="@dimen/small_font_size"
+        android:textSize="@dimen/normal_font_size"
         android:padding="5dp"
         />
 
@@ -34,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txt_current_value"
-        android:textSize="@dimen/big_font_size"
+        android:textSize="@dimen/normal_font_size"
         android:padding="5dp"
         android:textAlignment="textEnd"
         android:textStyle="normal|bold" />
@@ -43,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txt_input_value"
-        android:textSize="@dimen/normal_font_size"
+        android:textSize="@dimen/big_font_size"
         android:padding="5dp"
         android:textAlignment="textEnd" />
 
