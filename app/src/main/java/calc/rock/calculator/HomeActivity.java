@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity implements CalculateFragment
     ActionBarDrawerToggle drawerToggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
-    ArrayList<HistoryModel> buffer = new ArrayList<>();
+    static ArrayList<HistoryModel>buffer = new ArrayList<>();
 
     FragmentManager fragmentManager;
     NavigationView navigationView;
