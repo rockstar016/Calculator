@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="calc.rock.calculator.HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <calc.rock.calculator.Customs.CustomMemoryTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_memory_view"
+            android:textSize="@dimen/normal_font_size"
+            android:padding="5dp"
+            />
+
+        <calc.rock.calculator.Customs.CustomNumberTextView
+            android:id="@+id/txt_current_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/normal_font_size"
+            android:textStyle="normal|bold" />
+
+        <calc.rock.calculator.Customs.CustomNumberTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_input_value"
+            android:textSize="@dimen/big_font_size"
+            android:padding="5dp"
+            android:textAlignment="textEnd" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/frame_container"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true">
+
+            </FrameLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>

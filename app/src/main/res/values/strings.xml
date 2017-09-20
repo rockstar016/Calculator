@@ -55,6 +55,13 @@
     <string name="xpown">xⁿ</string>
     <string name="epown">eⁿ</string>
     <string name="pi">π</string>
+    <string name="exit">Exit</string>
+    <string name="themem">Change Theme</string>
+    <string name="calculate">Calculate</string>
+    <string name="rate_it">Rate_it</string>
+    <string name="settings">Settings</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
 
     <string name="vibration">Vibration</string>
     <string name="show_memory_keys">Show memory keys</string>

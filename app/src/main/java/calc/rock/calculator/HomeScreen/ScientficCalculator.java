@@ -27,7 +27,7 @@ public class ScientficCalculator extends BaseFragment {
     CustomNumberButton bt_plus_minus, bt_0, bt_point, bt_bracket_close, bt_bracket_open, bt_percentage, bt_1, bt_2, bt_3, bt_4, bt_5, bt_6, bt_7, bt_8, bt_9;
 
 
-    HomeActivityInterface parent;
+    CalculatorInterface parent, parentFragment;
     public ScientficCalculator() {
         // Required empty public constructor
     }
@@ -42,6 +42,7 @@ public class ScientficCalculator extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        parentFragment = (CalculatorInterface)getParentFragment();
     }
 
     @Override
@@ -56,161 +57,155 @@ public class ScientficCalculator extends BaseFragment {
     }
 
     private void initEventListener(){
-        bt_setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.onClickSettingButton();
-            }
-        });
         bt_0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_0.getText().toString());
+                parentFragment.onClickNumberButton(bt_0.getText().toString());
             }
         });
         bt_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_1.getText().toString());
+                parentFragment.onClickNumberButton(bt_1.getText().toString());
             }
         });
         bt_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_2.getText().toString());
+                parentFragment.onClickNumberButton(bt_2.getText().toString());
             }
         });
         bt_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_3.getText().toString());
+                parentFragment.onClickNumberButton(bt_3.getText().toString());
             }
         });
         bt_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_4.getText().toString());
+                parentFragment.onClickNumberButton(bt_4.getText().toString());
             }
         });
         bt_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_5.getText().toString());
+                parentFragment.onClickNumberButton(bt_5.getText().toString());
             }
         });
         bt_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_6.getText().toString());
+                parentFragment.onClickNumberButton(bt_6.getText().toString());
             }
         });
         bt_7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_7.getText().toString());
+                parentFragment.onClickNumberButton(bt_7.getText().toString());
             }
         });
         bt_8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_8.getText().toString());
+                parentFragment.onClickNumberButton(bt_8.getText().toString());
             }
         });
         bt_9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_9.getText().toString());
+                parentFragment.onClickNumberButton(bt_9.getText().toString());
             }
         });
         bt_m_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickMemoryKeyButton(Constants.MEM_PLUS);
+                parentFragment.onClickMemoryKeyButton(Constants.MEM_PLUS);
             }
         });
         bt_m_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickMemoryKeyButton(Constants.MEM_MINUS);
+                parentFragment.onClickMemoryKeyButton(Constants.MEM_MINUS);
             }
         });
         bt_m_read.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickMemoryKeyButton(Constants.MEM_READ);
+                parentFragment.onClickMemoryKeyButton(Constants.MEM_READ);
             }
         });
         bt_m_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickMemoryKeyButton(Constants.MEM_CLEAR);
+                parentFragment.onClickMemoryKeyButton(Constants.MEM_CLEAR);
             }
         });
         bt_backspace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.BACKSPACE);
+                parentFragment.onClickOperationButton(Constants.BACKSPACE);
             }
         });
 
         bt_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.CLEAR);
+                parentFragment.onClickOperationButton(Constants.CLEAR);
             }
         });
         bt_oper_equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.EQUAL);
+                parentFragment.onClickOperationButton(Constants.EQUAL);
             }
         });
         bt_plus_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.SIGN);
+                parentFragment.onClickOperationButton(Constants.SIGN);
             }
         });
         bt_oper_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.PLUS);
+                parentFragment.onClickOperationButton(Constants.PLUS);
             }
         });
         bt_oper_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.MINUS);
+                parentFragment.onClickOperationButton(Constants.MINUS);
             }
         });
         bt_point.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.DOT_POINT);
+                parentFragment.onClickOperationButton(Constants.DOT_POINT);
             }
         });
         bt_bracket_open.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.BRACKET_OPEN);
+                parentFragment.onClickOperationButton(Constants.BRACKET_OPEN);
             }
         });
         bt_bracket_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.BRACKET_CLOSE);
+                parentFragment.onClickOperationButton(Constants.BRACKET_CLOSE);
             }
         });
         bt_oper_multiple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.MUL);
+                parentFragment.onClickOperationButton(Constants.MUL);
             }
         });
         bt_oper_divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.DIVIDE);
+                parentFragment.onClickOperationButton(Constants.DIVIDE);
             }
         });
 
@@ -218,145 +213,145 @@ public class ScientficCalculator extends BaseFragment {
         bt_sin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.SIN);
+                parentFragment.onClickSpecialButton(Constants.SIN);
             }
         });
         bt_cos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.COS);
+                parentFragment.onClickSpecialButton(Constants.COS);
             }
         });
         bt_tan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.TAN);
+                parentFragment.onClickSpecialButton(Constants.TAN);
             }
         });
         bt_sin_inverse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.SIN_INVERSE);
+                parentFragment.onClickSpecialButton(Constants.SIN_INVERSE);
             }
         });
         bt_cos_inverse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.COS_INVERSE);
+                parentFragment.onClickSpecialButton(Constants.COS_INVERSE);
             }
         });
         bt_tan_inverse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.TAN_INVERSE);
+                parentFragment.onClickSpecialButton(Constants.TAN_INVERSE);
             }
         });
         bt_sinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.SINH);
+                parentFragment.onClickSpecialButton(Constants.SINH);
             }
         });
         bt_cosh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.COSH);
+                parentFragment.onClickSpecialButton(Constants.COSH);
             }
         });
         bt_tanh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.TANH);
+                parentFragment.onClickSpecialButton(Constants.TANH);
             }
         });
         bt_sinh_inverse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.SINH_INVERSE);
+                parentFragment.onClickSpecialButton(Constants.SINH_INVERSE);
             }
         });
         bt_cosh_inverse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.COSH_INVERSE);
+                parentFragment.onClickSpecialButton(Constants.COSH_INVERSE);
             }
         });
         bt_tanh_inverse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.TANH_INVERSE);
+                parentFragment.onClickSpecialButton(Constants.TANH_INVERSE);
             }
         });
         bt_pi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.PI);
+                parentFragment.onClickSpecialButton(Constants.PI);
             }
         });
         bt_e.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.POWE);
+                parentFragment.onClickSpecialButton(Constants.POWE);
             }
         });
         bt_x_pow_n.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.POW_N);
+                parentFragment.onClickSpecialButton(Constants.POW_N);
             }
         });
         bt_x_pow_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.POW_2);
+                parentFragment.onClickSpecialButton(Constants.POW_2);
             }
         });
         bt_x_pow_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.POW_3);
+                parentFragment.onClickSpecialButton(Constants.POW_3);
             }
         });
         bt_x_inverse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.X_INVERSE);
+                parentFragment.onClickSpecialButton(Constants.X_INVERSE);
             }
         });
         bt_log_10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.LOG_10);
+                parentFragment.onClickSpecialButton(Constants.LOG_10);
             }
         });
         bt_ln.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.ln);
+                parentFragment.onClickSpecialButton(Constants.ln);
             }
         });
         bt_log_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.LOG_2);
+                parentFragment.onClickSpecialButton(Constants.LOG_2);
             }
         });
         bt_x_factorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.X_FACTORIAL);
+                parentFragment.onClickSpecialButton(Constants.X_FACTORIAL);
             }
         });
         bt_x_sqrt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.SQRT);
+                parentFragment.onClickSpecialButton(Constants.SQRT);
             }
         });
         bt_x_triple_sqrt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickSpecialButton(Constants.X_TRIPLE_SQRT);
+                parentFragment.onClickSpecialButton(Constants.X_TRIPLE_SQRT);
             }
         });
 
@@ -364,7 +359,7 @@ public class ScientficCalculator extends BaseFragment {
         bt_oper_equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickEqualButton();
+                parentFragment.onClickEqualButton();
             }
         });
     }
@@ -501,8 +496,8 @@ public class ScientficCalculator extends BaseFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof HomeActivityInterface) {
-            parent = (HomeActivityInterface)getActivity();
+        if(context instanceof CalculatorInterface) {
+            parent = (CalculatorInterface)getActivity();
         }
     }
 

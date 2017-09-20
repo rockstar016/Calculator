@@ -40,7 +40,7 @@ public class NormalCalculator extends BaseFragment {
     LinearLayout    memoryKey;
     int             vibration;
 
-    HomeActivityInterface parent;
+    CalculatorInterface parent, parentFragment;
     public NormalCalculator() {
 
     }
@@ -53,9 +53,11 @@ public class NormalCalculator extends BaseFragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        parentFragment = (CalculatorInterface)getParentFragment();
     }
 
     @Override
@@ -66,184 +68,178 @@ public class NormalCalculator extends BaseFragment {
         initControls(rootView);
         initStyles();
         initEventListener();
+
         return rootView;
     }
 
     public void initEventListener(){
-
-        bt_setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.onClickSettingButton();
-            }
-        });
         bt_num_0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_num_0.getText().toString());
+                parentFragment.onClickNumberButton(bt_num_0.getText().toString());
             }
         });
         bt_num_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_num_1.getText().toString());
+                parentFragment.onClickNumberButton(bt_num_1.getText().toString());
             }
         });
         bt_num_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_num_2.getText().toString());
+                parentFragment.onClickNumberButton(bt_num_2.getText().toString());
             }
         });
         bt_num_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_num_3.getText().toString());
+                parentFragment.onClickNumberButton(bt_num_3.getText().toString());
             }
         });
         bt_num_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_num_4.getText().toString());
+                parentFragment.onClickNumberButton(bt_num_4.getText().toString());
             }
         });
         bt_num_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_num_5.getText().toString());
+                parentFragment.onClickNumberButton(bt_num_5.getText().toString());
             }
         });
         bt_num_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_num_6.getText().toString());
+                parentFragment.onClickNumberButton(bt_num_6.getText().toString());
             }
         });
         bt_num_7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_num_7.getText().toString());
+                parentFragment.onClickNumberButton(bt_num_7.getText().toString());
             }
         });
         bt_num_8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_num_8.getText().toString());
+                parentFragment.onClickNumberButton(bt_num_8.getText().toString());
             }
         });
         bt_num_9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickNumberButton(bt_num_9.getText().toString());
+                parentFragment.onClickNumberButton(bt_num_9.getText().toString());
             }
         });
         bt_m_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickMemoryKeyButton(Constants.MEM_PLUS);
+                parentFragment.onClickMemoryKeyButton(Constants.MEM_PLUS);
             }
         });
         bt_m_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickMemoryKeyButton(Constants.MEM_MINUS);
+                parentFragment.onClickMemoryKeyButton(Constants.MEM_MINUS);
             }
         });
         bt_m_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickMemoryKeyButton(Constants.MEM_READ);
+                parentFragment.onClickMemoryKeyButton(Constants.MEM_READ);
             }
         });
         bt_m_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickMemoryKeyButton(Constants.MEM_CLEAR);
+                parentFragment.onClickMemoryKeyButton(Constants.MEM_CLEAR);
             }
         });
         bt_backspace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.BACKSPACE);
+                parentFragment.onClickOperationButton(Constants.BACKSPACE);
             }
         });
         bt_percentage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.PERSENTAGE);
+                parentFragment.onClickOperationButton(Constants.PERSENTAGE);
             }
         });
         bt_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.CLEAR);
+                parentFragment.onClickOperationButton(Constants.CLEAR);
             }
         });
         bt_equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.EQUAL);
+                parentFragment.onClickOperationButton(Constants.EQUAL);
             }
         });
         bt_sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.SIGN);
+                parentFragment.onClickOperationButton(Constants.SIGN);
             }
         });
         bt_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.PLUS);
+                parentFragment.onClickOperationButton(Constants.PLUS);
             }
         });
         bt_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.MINUS);
+                parentFragment.onClickOperationButton(Constants.MINUS);
             }
         });
         bt_point.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.DOT_POINT);
+                parentFragment.onClickOperationButton(Constants.DOT_POINT);
             }
         });
         bt_brack_open.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.BRACKET_OPEN);
+                parentFragment.onClickOperationButton(Constants.BRACKET_OPEN);
             }
         });
         bt_brack_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.BRACKET_CLOSE);
+                parentFragment.onClickOperationButton(Constants.BRACKET_CLOSE);
             }
         });
         bt_multi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.MUL);
+                parentFragment.onClickOperationButton(Constants.MUL);
             }
         });
         bt_divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.DIVIDE);
+                parentFragment.onClickOperationButton(Constants.DIVIDE);
             }
         });
         bt_percentage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickOperationButton(Constants.PERSENTAGE);
+                parentFragment.onClickOperationButton(Constants.PERSENTAGE);
             }
         });
 
         bt_equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parent.onClickEqualButton();
+                parentFragment.onClickEqualButton();
             }
         });
 
@@ -284,7 +280,7 @@ public class NormalCalculator extends BaseFragment {
         bt_minus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_num_minus);
         bt_point = (CustomNumberButton)rootView.findViewById(R.id.bt_point);
         memoryKey = (LinearLayout)rootView.findViewById(R.id.memorykey);
-       normal_bottom_color = (View)rootView.findViewById(R.id.normal_bottom_color);
+        normal_bottom_color = (View)rootView.findViewById(R.id.normal_bottom_color);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         int initialShow = prefs.getInt(Constants.MEMORY_KEYS, 0);
@@ -338,8 +334,8 @@ public class NormalCalculator extends BaseFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof HomeActivityInterface) {
-            parent = (HomeActivityInterface)getActivity();
+        if(context instanceof CalculatorInterface) {
+            parent = (CalculatorInterface)getActivity();
         }
     }
 

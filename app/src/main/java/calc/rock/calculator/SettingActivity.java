@@ -45,6 +45,7 @@ public class SettingActivity extends AppCompatActivity implements TabLayout.OnTa
     }
     @Override
     public void onBackPressed() {
+
         super.onBackPressed();
         Intent i = new Intent(SettingActivity.this, HomeActivity.class);
         startActivity(i);
