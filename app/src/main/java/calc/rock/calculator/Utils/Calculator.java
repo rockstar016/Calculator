@@ -8,7 +8,9 @@ package calc.rock.calculator.Utils;
 
 
 import android.util.Log;
+import android.widget.Toast;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
@@ -28,6 +30,9 @@ public class Calculator {
 
     }
 
+    Exception sinException = new Exception(){
+
+    };
     public String equaltion(){
         infix.add(String.valueOf(Constants.BRACKET_CLOSE));
         ArrayList<String> postfix = infixToPostfix(infix);
@@ -47,7 +52,6 @@ public class Calculator {
         i=0;
         while(i < infixLocal.size()) {
             String s = infixLocal.get(i);
-            Log.d("TEST",s);
             if(((int)s.charAt(0) >=48 && (int)s.charAt(0) <= 57) || s.charAt(0) == '.'|| (s.charAt(0) == '-' && s.length() > 1)){
                 postfix.add(s);
                 i++;
@@ -122,7 +126,11 @@ public class Calculator {
                     postfixStack.push(answer.multiply(number,MathContext.DECIMAL32) +"");
                 }
                 else if(op.equals(String.valueOf(Constants.DIVIDE))){
-                    postfixStack.push(number.divide(answer, MathContext.DECIMAL64)+"");
+                    try {
+                        postfixStack.push(number.divide(answer, MathContext.DECIMAL64) + "");
+                    }catch (Exception e){
+                        postfixStack.push(Constants.ERROR);
+                    }
                 }else if(op.equals(String.valueOf(Constants.PERSENTAGE))){
 
                 }
@@ -165,231 +173,191 @@ public class Calculator {
         return n * k;
     }
 
-
-
-
     public String[] triangleFunc(String   inputNumber,String operator)//uses the sin, arcsin or sinh trig function according to the value of the inverse and hyperbolic flags
     {
-        double  temp = 0.0;
+        double temp = 0.0;
+        String displayString[] = new String[2];
+        try {
+            specialValue = new BigDecimal(inputNumber);
+            switch (operator) {
+                case Constants.SIN: {
+                    temp = Math.sin(specialValue.doubleValue());
+                    specialValue = BigDecimal.valueOf(temp);
+                    displayString[0] = Constants.SIN + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                }
+                break;
+                case Constants.SINH: {
+                        temp = Math.sinh(specialValue.doubleValue());
+                    displayString[0] = Constants.SINH + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                        specialValue = BigDecimal.valueOf(temp);
+                }
+                break;
+                case Constants.SIN_INVERSE: {
+                    temp = specialValue.doubleValue();
+                    displayString[0] = Constants.SIN_INVERSE + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    if ((-Constants.PIVALUE / 2 > temp) || (temp > Constants.PIVALUE / 2)) {
+                        displayString[1] = Constants.ERROR;
+                        return displayString;
+                    } else {
+                        temp = Math.asin(temp);
+                        specialValue = BigDecimal.valueOf(temp);
 
-        String  displayString[] = new String[2];
-        specialValue = new BigDecimal(inputNumber);
-        switch (operator)
-        {
-            case Constants.SIN:
-            {
-                temp = Math.sin(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.SIN + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.SINH: {
-                temp = Math.sinh(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.SINH + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.SIN_INVERSE: {
-                temp = specialValue.doubleValue();
-                displayString[0] = Constants.SIN_INVERSE + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-                if((-Constants.PIVALUE/2 > temp) || (temp >Constants.PIVALUE/2))
-                {
-                    displayString[1] = Constants.ERROR;
-                    return displayString;
-                }else
-                {
-                    temp = Math.asin(temp);
+                    }
+
+                }
+                break;
+                case Constants.SINH_INVERSE: {
+                    temp = asinh(specialValue.doubleValue());
+                    displayString[0] = Constants.SINH_INVERSE + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
                     specialValue = BigDecimal.valueOf(temp);
 
                 }
-
-            }
-            break;
-            case Constants.SINH_INVERSE: {
-                temp = asinh(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.SINH_INVERSE + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.COS: {
-                temp = Math.cos(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.COS + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.COSH: {
-                temp = Math.cosh(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.COSH + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.COS_INVERSE: {
-
-                displayString[0] = Constants.COS_INVERSE + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-                if((-Constants.PIVALUE/2 > temp) || (temp >Constants.PIVALUE/2))
-                {
-                    displayString[1] = Constants.ERROR;
-                    return displayString;
-                }else
-                {
-                    temp = Math.acos(specialValue.doubleValue());
+                break;
+                case Constants.COS: {
+                    temp = Math.cos(specialValue.doubleValue());
+                    displayString[0] = Constants.COS + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
                     specialValue = BigDecimal.valueOf(temp);
 
                 }
-            }
-            break;
-            case Constants.COSH_INVERSE: {
-                temp = acosh(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.COSH_INVERSE + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.TAN: {
-                temp = Math.tan(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.TAN + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.TANH: {
+                break;
+                case Constants.COSH: {
+                        temp = Math.cosh(specialValue.doubleValue());
+                        displayString[0] = Constants.COSH + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                        specialValue = BigDecimal.valueOf(temp);
+                }
+                break;
+                case Constants.COS_INVERSE: {
+                    displayString[0] = Constants.COS_INVERSE + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    if ((-Constants.PIVALUE / 2 > temp) || (temp > Constants.PIVALUE / 2)) {
+                        displayString[1] = Constants.ERROR;
+                        return displayString;
+                    } else {
+                        temp = Math.acos(specialValue.doubleValue());
+                        specialValue = BigDecimal.valueOf(temp);
+                    }
+                }
+                break;
+                case Constants.COSH_INVERSE: {
+                    temp = acosh(specialValue.doubleValue());
+                    displayString[0] = Constants.COSH_INVERSE + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = BigDecimal.valueOf(temp);
+                }
+                break;
+                case Constants.TAN: {
+                    temp = Math.tan(specialValue.doubleValue());
+                    displayString[0] = Constants.TAN + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = BigDecimal.valueOf(temp);
+                }
+                break;
+                case Constants.TANH: {
 
-                displayString[0] = Constants.TANH + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-                if((-Constants.PIVALUE/2 > temp) || (temp >Constants.PIVALUE/2))
-                {
-                    displayString[1] = Constants.ERROR;
-                    return displayString;
-                }else
-                {
-                    temp = Math.atan(specialValue.doubleValue());
+                    displayString[0] = Constants.TANH + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    if ((-Constants.PIVALUE / 2 > temp) || (temp > Constants.PIVALUE / 2)) {
+                        displayString[1] = Constants.ERROR;
+                        return displayString;
+                    } else {
+                        temp = Math.atan(specialValue.doubleValue());
+                        specialValue = BigDecimal.valueOf(temp);
+
+                    }
+                }
+                break;
+                case Constants.TAN_INVERSE: {
+                    temp = Math.tanh(specialValue.doubleValue());
+                    displayString[0] = Constants.TAN_INVERSE + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
                     specialValue = BigDecimal.valueOf(temp);
 
                 }
-            }
-            break;
-            case Constants.TAN_INVERSE: {
-                temp = Math.tanh(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.TAN_INVERSE + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-
-
-            }
-            break;
-            case Constants.TANH_INVERSE: {
-                temp = atanh(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.TANH_INVERSE + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.PI:
-            {
-                displayString[0] = String.valueOf(Constants.BRACKET_OPEN )  + Constants.PI + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.POWE:
-            {
-                int n = Integer.valueOf(inputNumber);
-
-                displayString[0] = Constants.SIN + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-
-            case Constants.POW_2:
-            {
-                try{
-                    specialValue = specialValue.pow(2,MathContext.DECIMAL64);
-
-                }catch (Exception e)
-                {
-                    displayString[0] = "";
-                    displayString[1] = Constants.ERROR;
-                    return displayString;
+                break;
+                case Constants.TANH_INVERSE: {
+                    temp = atanh(specialValue.doubleValue());
+                    displayString[0] = Constants.TANH_INVERSE + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = BigDecimal.valueOf(temp);
                 }
-
-                displayString[0] = Constants.POW_2 + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber+" "+  String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.POW_3:
-            {
-                try{
-                    specialValue = specialValue.pow(3,MathContext.DECIMAL64);
-
-                }catch (Exception e)
-                {
-                    displayString[0] = "";
-                    displayString[1] = Constants.ERROR;
-                    return displayString;
+                break;
+                case Constants.PI: {
+                    displayString[0] = String.valueOf(Constants.BRACKET_OPEN) + Constants.PI + String.valueOf(Constants.BRACKET_CLOSE);
                 }
+                break;
+                case Constants.POWE: {
+                    int n = Integer.valueOf(inputNumber);
 
-                displayString[0] = Constants.POW_3 + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-
-            }
-            break;
-            case Constants.X_INVERSE:
-            {
-                BigDecimal  number = BigDecimal.ONE;
-                specialValue = number.divide(specialValue,MathContext.DECIMAL32);
-                displayString[0] = Constants.X_INVERSE + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.LOG_10:
-            {
-                temp = Math.log10(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.LOG_10 + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-
-            }
-            break;
-            case Constants.LOG_2:
-            {
-                temp = log2(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.LOG_2 + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-
-            }
-            break;
-            case Constants.ln:
-            {
-                temp = Math.log(specialValue.doubleValue());
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.ln + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.X_FACTORIAL:
-            {
-
-                if(Double.valueOf(inputNumber) > 3000.0)
-                {
-                    displayString[1] = Constants.OVERFLOW;
-                    displayString[0] = "";
-                    return displayString;
+                    displayString[0] = Constants.SIN + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
                 }
-                double i;
-                for(i = 2; i < Double.valueOf(inputNumber);i++)
-                {
-                    specialValue = specialValue.multiply(BigDecimal.valueOf(i),MathContext.DECIMAL64);
-                }
-                displayString[0] = Constants.X_FACTORIAL + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                break;
 
+                case Constants.POW_2: {
+                    displayString[0] = Constants.POW_2 + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + " " + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = specialValue.pow(2, MathContext.DECIMAL64);
+                }
+                break;
+                case Constants.POW_3: {
+                    displayString[0] = Constants.POW_3 + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = specialValue.pow(3, MathContext.DECIMAL64);
+                }
+                break;
+                case Constants.X_INVERSE: {
+                    BigDecimal number = BigDecimal.ONE;
+                    displayString[0] = Constants.X_INVERSE + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = number.divide(specialValue, MathContext.DECIMAL32);
+
+                }
+                break;
+                case Constants.LOG_10: {
+                    temp = Math.log10(specialValue.doubleValue());
+                    displayString[0] = Constants.LOG_10 + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = BigDecimal.valueOf(temp);
+                }
+                break;
+                case Constants.LOG_2: {
+                    temp = log2(specialValue.doubleValue());
+                    displayString[0] = Constants.LOG_2 + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = BigDecimal.valueOf(temp);
+
+                }
+                break;
+                case Constants.ln: {
+                    temp = Math.log(specialValue.doubleValue());
+                    displayString[0] = Constants.ln + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = BigDecimal.valueOf(temp);
+                }
+                break;
+                case Constants.X_FACTORIAL: {
+
+                    if (Double.valueOf(inputNumber) > 3000.0) {
+                        displayString[1] = Constants.OVERFLOW;
+                        displayString[0] = "";
+                        return displayString;
+                    }
+                    double i;
+                    displayString[0] = Constants.X_FACTORIAL + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    for (i = 2; i < Double.valueOf(inputNumber); i++) {
+                        specialValue = specialValue.multiply(BigDecimal.valueOf(i), MathContext.DECIMAL64);
+                    }
+
+                }
+                break;
+                case Constants.SQRT: {
+
+                    temp = Math.sqrt(specialValue.doubleValue());
+                    displayString[0] = Constants.SQRT + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = BigDecimal.valueOf(temp);
+                }
+                break;
+                case Constants.X_TRIPLE_SQRT: {
+                    temp = Math.cbrt(specialValue.doubleValue());
+                    temp = Math.scalb(temp, 4);
+                    displayString[0] = Constants.X_TRIPLE_SQRT + String.valueOf(Constants.BRACKET_OPEN) + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
+                    specialValue = BigDecimal.valueOf(temp);
+
+                }
+                break;
             }
-            break;
-            case Constants.SQRT:
-            {
-                temp = Math.sqrt(specialValue.doubleValue());
-//                specialValue = sqrt(specialValue,5,BigDecimal.ROUND_FLOOR);
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.SQRT + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
-            case Constants.X_TRIPLE_SQRT:
-            {
-                temp = Math.cbrt(specialValue.doubleValue());
-                temp = Math.scalb(temp,4);
-                specialValue = BigDecimal.valueOf(temp);
-                displayString[0] = Constants.X_TRIPLE_SQRT + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber + String.valueOf(Constants.BRACKET_CLOSE);
-            }
-            break;
+            infix.set(infix.size() - 1, specialValue.toString());
+            displayString[1] = specialValue.toString();
+        }catch (Exception e){
+            displayString[1] = Constants.ERROR;
         }
-        infix.set(infix.size()-1,specialValue.toString());
-        displayString[1] = specialValue.toString();
         return displayString;
     }
 

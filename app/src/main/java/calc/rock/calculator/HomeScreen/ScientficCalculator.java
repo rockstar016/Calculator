@@ -28,6 +28,7 @@ public class ScientficCalculator extends BaseFragment {
 
 
     CalculatorInterface parent, parentFragment;
+
     public ScientficCalculator() {
         // Required empty public constructor
     }

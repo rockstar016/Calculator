@@ -10,6 +10,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -54,6 +55,7 @@ public class HomeActivity extends AppCompatActivity implements CalculateFragment
     FrameLayout frameLayout;
 
     RecyclerView recyclerView;
+    SharedPreferences prefs;
     RecyclerViewAdapter recyclerViewAdapter;
     HistoryListViewModel viewModel;
 
@@ -86,6 +88,7 @@ public class HomeActivity extends AppCompatActivity implements CalculateFragment
         drawerToggle.syncState();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        //recyclerView.setBackgroundColor(prefs.getInt(Constants.BACKGROUND_COLOR, Constants.RES_BACKGROUNDCOLOR));
         recyclerViewAdapter = new RecyclerViewAdapter(buffer);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(recyclerViewAdapter);

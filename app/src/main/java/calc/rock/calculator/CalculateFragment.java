@@ -32,6 +32,7 @@ import calc.rock.calculator.Utils.Calculator;
 import calc.rock.calculator.Utils.Constants;
 import calc.rock.calculator.Utils.ThemeManagement;
 
+import static calc.rock.calculator.R.id.result;
 import static calc.rock.calculator.R.id.txt_current_value;
 
 public class CalculateFragment extends Fragment implements CalculatorInterface {
@@ -406,9 +407,15 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
 
             case Constants.DIVIDE:
             {
-                inputString = inputString + Constants.DIVIDE ;
-                txt_current_view.setText(equationString + inputString);
-                txt_input_view.setText("");
+                try{
+                    inputString = inputString + Constants.DIVIDE ;
+                    txt_current_view.setText(equationString + inputString);
+                    txt_input_view.setText("");
+                }catch (Exception e){
+                    txt_current_view.setText(Constants.ERROR);
+                    txt_input_view.setText("");
+                }
+
             }
             break;
             case Constants.MUL:
