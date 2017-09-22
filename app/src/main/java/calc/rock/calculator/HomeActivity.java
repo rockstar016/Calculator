@@ -160,6 +160,7 @@ public class HomeActivity extends AppCompatActivity implements CalculateFragment
         MenuItem switchItem = menu.findItem(R.id.mySwitch);
         switchItem.setActionView(R.layout.switch_layout);
         final Switch sw = (Switch)menu.findItem(R.id.mySwitch).getActionView().findViewById(R.id.actionbar_switch);
+        sw.setChecked((ThemeManagement.getCalculator(getApplicationContext(), Constants.CURRENT_CALCULATOR) == Constants.NORMAL_CALC)? false: true);
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

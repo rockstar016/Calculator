@@ -581,6 +581,7 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         {
             specialpowNumber = inputNumber;
             specialPowNClicked = true;
+            Log.d("equation", "equation");
             numberInput = false;
             displayString[1] = "";
             displayString[0] = displayString[0] =  String.valueOf(Constants.BRACKET_OPEN )  + inputNumber  + Constants.POW_N;
@@ -621,6 +622,9 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         }
         txt_current_view.append(displayString[0]);
         txt_input_view.setText(displayString[1]);
+        Log.d("equation", displayString[0]);
+        Log.d("equation", displayString[1]);
+        //historyInterface.updateHistoryModel(new HistoryModel("", new Date(), displayString[0], displayString[1]));
         commaString="";
         if(vibration == 1){
             vi.vibrate(120);
@@ -736,10 +740,17 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         String  equationString;
         String  temp;
         equationString = txt_current_view.getText().toString();
-        Log.d("result", equationString);
-        Log.d("result", txt_input_view.getText().toString());
-        String equation;
-        equation = equationString + txt_input_view.getText().toString();
+        Log.d("equation", equationString);
+        Log.d("equation", txt_input_view.getText().toString());
+        String equation = null;
+        if(specialClicked == false){
+            equation = equationString + txt_input_view.getText().toString();
+            if(specialPowNClicked)
+                equation = equation.substring(1);
+        }
+        else
+            equation = equationString;
+
         Date date = new Date();
 
         int bracketOpenCount = equationString.length() - equationString.replace("(", "").length();

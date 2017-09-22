@@ -89,7 +89,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     editComment();
                 }
             });
-            btRemove.setVisibility(historyName.getText().toString().isEmpty()?View.INVISIBLE:View.VISIBLE);
+            //btRemove.setVisibility(historyName.getText().toString().isEmpty()?View.INVISIBLE:View.VISIBLE);
             btRemove.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -110,10 +110,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             if(historyName.isEnabled())
             {
                 //save
-                Log.d("addHistory", historyName.getText().toString());
-                Log.d("addHistory", model.getHistoryDate().toString());
-                Log.d("addHistory", model.getEquation());
-                Log.d("addHistory", model.getResult());
                 model = new HistoryModel(historyName.getText().toString(), model.getHistoryDate(), model.getEquation(), model.getResult());
                 historyModelList.set(position, model);
                 notifyDataSetChanged();
