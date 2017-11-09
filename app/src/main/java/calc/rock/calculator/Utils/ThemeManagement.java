@@ -13,7 +13,7 @@ public class ThemeManagement {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor ed = sp.edit();
         ed.putInt(Constants.CURRENT_THEME, theme);
-        ed.commit();
+        ed.apply();
     }
 
     public static int getTheme(Context context,String  storeKey,int baseColor){
@@ -25,7 +25,7 @@ public class ThemeManagement {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor ed = sp.edit();
         ed.putInt(stroeKey, theme);
-        ed.commit();
+        ed.apply();
     }
 
     public static int getCalculator(Context context,String obtainkey){

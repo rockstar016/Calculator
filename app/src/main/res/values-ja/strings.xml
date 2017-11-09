@@ -21,7 +21,7 @@
     <string name="oper_mminus">m-</string>
     <string name="oper_mrecord">mr</string>
     <string name="oper_divid">÷</string>
-    <string name="oper_multiple">X</string>
+    <string name="oper_multiple">x</string>
     <string name="oper_minus">-</string>
     <string name="oper_plus">+</string>
     <string name="oper_equals">=</string>
@@ -55,6 +55,13 @@
     <string name="xpown">xⁿ</string>
     <string name="epown">eⁿ</string>
     <string name="pi">π</string>
+    <string name="exit">出口</string>
+    <string name="themem">テーマを変更</string>
+    <string name="calculate">計算する</string>
+    <string name="rate_it">レート</string>
+    <string name="settings">設定</string>
+    <string name="drawer_open">開いた</string>
+    <string name="drawer_close">閉じる</string>
 
     <string name="theme">テーマ</string>
     <string name="setting">設定</string>
@@ -71,6 +78,8 @@
 
 
     <string name="admob_interstitial_id">ca-app-pub-7505360572028906/6626107670</string>
+    <string name="very_fast_and_simple">非常に速く簡単</string>
+    <string name="calculator">電卓</string>
     <!--<string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>-->
 
 </resources>

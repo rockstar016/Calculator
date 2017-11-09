@@ -30,16 +30,17 @@
     </LinearLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"
-        android:layout_width="200dp"
+        android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
         app:menu="@menu/menu_drawer" />
     <android.support.v7.widget.RecyclerView
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:id="@+id/recycler_view"
         android:layout_gravity="end"
-        android:background="#234546">
+        android:background="@android:color/white">
 
     </android.support.v7.widget.RecyclerView>
 

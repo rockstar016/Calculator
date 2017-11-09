@@ -1,7 +1,6 @@
 package calc.rock.calculator;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,7 @@ import android.widget.TextView;
 import java.text.DateFormat;
 import java.util.List;
 
-import calc.rock.calculator.Database.HistoryListViewModel;
-import calc.rock.calculator.Database.HistoryModel;
+import calc.rock.calculator.Models.HistoryModel;
 
 /**
  * Created by kkkkk on 18/09/2017.
@@ -58,7 +56,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private TextView result;
         private ImageButton btAdd, btRemove;
         HistoryModel model;
-        HistoryListViewModel addHistoryViewModel, deleteHistoryViewModel;
         String stringDate;
         int position;
 
@@ -89,7 +86,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     editComment();
                 }
             });
-            //btRemove.setVisibility(historyName.getText().toString().isEmpty()?View.INVISIBLE:View.VISIBLE);
             btRemove.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -113,15 +109,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 model = new HistoryModel(historyName.getText().toString(), model.getHistoryDate(), model.getEquation(), model.getResult());
                 historyModelList.set(position, model);
                 notifyDataSetChanged();
-                //addHistoryViewModel.addHistory(new HistoryModel(historyName.getText().toString(), model.getHistoryDate(), model.getEquation(), model.getResult()));
-                btAdd.setBackgroundResource(R.drawable.ic_add_black_24dp);
+                btAdd.setBackgroundResource(R.drawable.ic_edit_black_24dp);
                 historyName.setEnabled(false);
             }
             else
             {
 
                 historyName.setEnabled(true);
-                btAdd.setBackgroundResource(R.drawable.cpv_preset_checked);
+                btAdd.setBackgroundResource(R.drawable.ic_done_all_black_24dp);
             }
         }
     }

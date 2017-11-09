@@ -1,6 +1,7 @@
 package calc.rock.calculator.HomeScreen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import calc.rock.calculator.Customs.CustomNumberButton;
 import calc.rock.calculator.Customs.CustomOperateButton2;
 import calc.rock.calculator.Customs.CustomOperatorButton1;
 import calc.rock.calculator.R;
+import calc.rock.calculator.SettingActivity;
 import calc.rock.calculator.Utils.Constants;
 import calc.rock.calculator.Utils.ThemeManagement;
 
@@ -23,28 +25,20 @@ public class ScientficCalculator extends BaseFragment {
                         bt_pi, bt_e, bt_x_pow_n, bt_x_pow_2, bt_x_pow_3, bt_x_inverse, bt_log_10, bt_ln, bt_log_2, bt_x_factorial, bt_x_sqrt, bt_x_triple_sqrt;
     CustomImageButton bt_setting, bt_backspace;
     CustomCButton bt_c;
-
     CustomNumberButton bt_plus_minus, bt_0, bt_point, bt_bracket_close, bt_bracket_open, bt_percentage, bt_1, bt_2, bt_3, bt_4, bt_5, bt_6, bt_7, bt_8, bt_9;
-
-
-    CalculatorInterface parent, parentFragment;
 
     public ScientficCalculator() {
         // Required empty public constructor
     }
 
-    public static ScientficCalculator newInstance(String param1, String param2) {
+    public static ScientficCalculator newInstance() {
         ScientficCalculator fragment = new ScientficCalculator();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        parentFragment = (CalculatorInterface)getParentFragment();
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,6 +52,14 @@ public class ScientficCalculator extends BaseFragment {
     }
 
     private void initEventListener(){
+        bt_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), SettingActivity.class);
+                startActivity(i);
+            }
+        });
+
         bt_0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -371,40 +373,73 @@ public class ScientficCalculator extends BaseFragment {
         super.initControls(rootView);
         //CustomOperatorButton1
         bt_m_c = (CustomOperatorButton1)rootView.findViewById(R.id.bt_m_c);
+        bt_m_c.setTextSize(15);
         bt_m_plus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_m_plus);
+        bt_m_plus.setTextSize(15);
         bt_m_minus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_m_minus);
+        bt_m_minus.setTextSize(15);
         bt_m_read = (CustomOperatorButton1)rootView.findViewById(R.id.bt_m_read);
+        bt_m_read.setTextSize(15);
         bt_oper_multiple = (CustomOperatorButton1)rootView.findViewById(R.id.bt_multiple);
+        bt_oper_multiple.setTextSize(15);
         bt_oper_divide = (CustomOperatorButton1)rootView.findViewById(R.id.bt_divide);
+        bt_oper_divide.setTextSize(15);
         bt_oper_minus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_minus);
+        bt_oper_minus.setTextSize(15);
         bt_oper_plus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_plus);
+        bt_oper_plus.setTextSize(15);
         bt_oper_equals = (CustomOperatorButton1)rootView.findViewById(R.id.bt_equal);
+        bt_oper_equals.setTextSize(15);
 
         //CustomOperatorButton2
         bt_sin = (CustomOperateButton2)rootView.findViewById(R.id.bt_sin);
+        bt_sin.setTextSize(11);
         bt_cos = (CustomOperateButton2)rootView.findViewById(R.id.bt_cos);
+        bt_cos.setTextSize(11);
         bt_tan = (CustomOperateButton2)rootView.findViewById(R.id.bt_tan);
+        bt_tan.setTextSize(11);
         bt_sin_inverse = (CustomOperateButton2)rootView.findViewById(R.id.bt_arc_sin);
+        bt_sin_inverse.setTextSize(11);
         bt_cos_inverse = (CustomOperateButton2)rootView.findViewById(R.id.bt_arc_cos);
+        bt_cos_inverse.setTextSize(11);
         bt_tan_inverse = (CustomOperateButton2)rootView.findViewById(R.id.bt_arc_tan);
+        bt_tan_inverse.setTextSize(11);
         bt_sinh = (CustomOperateButton2)rootView.findViewById(R.id.bt_sinh);
+        bt_sinh.setTextSize(11);
         bt_cosh = (CustomOperateButton2)rootView.findViewById(R.id.bt_cosh);
+        bt_cosh.setTextSize(11);
         bt_tanh = (CustomOperateButton2)rootView.findViewById(R.id.bt_tanh);
+        bt_tanh.setTextSize(11);
         bt_sinh_inverse = (CustomOperateButton2)rootView.findViewById(R.id.bt_arc_sinh);
+        bt_sinh_inverse.setTextSize(11);
         bt_cosh_inverse = (CustomOperateButton2)rootView.findViewById(R.id.bt_arc_cosh);
+        bt_cosh_inverse.setTextSize(11);
         bt_tanh_inverse = (CustomOperateButton2)rootView.findViewById(R.id.bt_arc_tanh);
+        bt_tanh_inverse.setTextSize(11);
         bt_pi = (CustomOperateButton2)rootView.findViewById(R.id.bt_pi);
+        bt_pi.setTextSize(11);
         bt_e = (CustomOperateButton2)rootView.findViewById(R.id.bt_e_pow_n);
+        bt_e.setTextSize(11);
         bt_x_pow_n = (CustomOperateButton2)rootView.findViewById(R.id.bt_x_pow_n);
+        bt_x_pow_n.setTextSize(11);
         bt_x_pow_2 = (CustomOperateButton2)rootView.findViewById(R.id.bt_x_pow_2);
+        bt_x_pow_2.setTextSize(11);
         bt_x_pow_3 = (CustomOperateButton2)rootView.findViewById(R.id.bt_x_pow_3);
+        bt_x_pow_3.setTextSize(11);
         bt_x_inverse = (CustomOperateButton2)rootView.findViewById(R.id.bt_inverse_x);
+        bt_x_inverse.setTextSize(11);
         bt_log_10 = (CustomOperateButton2)rootView.findViewById(R.id.bt_log);
+        bt_log_10.setTextSize(11);
         bt_ln = (CustomOperateButton2)rootView.findViewById(R.id.bt_ln);
+        bt_ln.setTextSize(11);
         bt_log_2 = (CustomOperateButton2)rootView.findViewById(R.id.bt_log2);
+        bt_log_2.setTextSize(11);
         bt_x_factorial = (CustomOperateButton2)rootView.findViewById(R.id.bt_factorial);
+        bt_x_factorial.setTextSize(11);
         bt_x_sqrt = (CustomOperateButton2)rootView.findViewById(R.id.bt_sqrt);
+        bt_x_sqrt.setTextSize(11);
         bt_x_triple_sqrt = (CustomOperateButton2)rootView.findViewById(R.id.bt_cubic_sqrt);
+        bt_x_triple_sqrt.setTextSize(11);
 
         bt_setting = (CustomImageButton)rootView.findViewById(R.id.bt_setting);
         bt_backspace = (CustomImageButton)rootView.findViewById(R.id.bt_backspace);
@@ -413,22 +448,35 @@ public class ScientficCalculator extends BaseFragment {
 
 
         bt_plus_minus = (CustomNumberButton)rootView.findViewById(R.id.bt_plus_minus);
+        bt_plus_minus.setTextSize(15);
         bt_0 = (CustomNumberButton)rootView.findViewById(R.id.bt_0);
+        bt_0.setTextSize(15);
         bt_point = (CustomNumberButton)rootView.findViewById(R.id.bt_point);
+        bt_point.setTextSize(15);
         bt_bracket_close  = (CustomNumberButton)rootView.findViewById(R.id.bt_bracket_close);
+        bt_bracket_close.setTextSize(15);
         bt_bracket_open = (CustomNumberButton)rootView.findViewById(R.id.bt_bracket_open);
+        bt_bracket_open.setTextSize(15);
         bt_percentage = (CustomNumberButton)rootView.findViewById(R.id.bt_percentage);
+        bt_percentage.setTextSize(15);
         bt_1  = (CustomNumberButton)rootView.findViewById(R.id.bt_1);
+        bt_1.setTextSize(15);
         bt_2 = (CustomNumberButton)rootView.findViewById(R.id.bt_2);
+        bt_2.setTextSize(15);
         bt_3 = (CustomNumberButton)rootView.findViewById(R.id.bt_3);
+        bt_3.setTextSize(15);
         bt_4 = (CustomNumberButton)rootView.findViewById(R.id.bt_4);
+        bt_4.setTextSize(15);
         bt_5 = (CustomNumberButton)rootView.findViewById(R.id.bt_5);
+        bt_5.setTextSize(15);
         bt_6 = (CustomNumberButton)rootView.findViewById(R.id.bt_6);
+        bt_6.setTextSize(15);
         bt_7 = (CustomNumberButton)rootView.findViewById(R.id.bt_7);
+        bt_7.setTextSize(15);
         bt_8 = (CustomNumberButton)rootView.findViewById(R.id.bt_8);
+        bt_8.setTextSize(15);
         bt_9 = (CustomNumberButton)rootView.findViewById(R.id.bt_9);
-
-
+        bt_9.setTextSize(15);
     }
 
     @Override
@@ -493,18 +541,5 @@ public class ScientficCalculator extends BaseFragment {
         bt_7.setTheme(text_style,background_style);
         bt_8.setTheme(text_style,background_style);
         bt_9.setTheme(text_style,background_style);
-    }
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if(context instanceof CalculatorInterface) {
-            parent = (CalculatorInterface)getActivity();
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        parent = null;
     }
 }

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="ratingdialog-1.0.8">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/f823eb648a192466ac625b3a5bd71a7ccff4ee48/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/f823eb648a192466ac625b3a5bd71a7ccff4ee48/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.codemybrainsout.rating/ratingdialog/1.0.8/8e4dbcfa921d0ec6ef79bb62821ead2579855b7c/ratingdialog-1.0.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

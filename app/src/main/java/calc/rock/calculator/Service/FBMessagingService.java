@@ -41,6 +41,5 @@ public class FBMessagingService extends FirebaseMessagingService {
         NotificationManager notificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, b.build());
         }
-//
     }
 }

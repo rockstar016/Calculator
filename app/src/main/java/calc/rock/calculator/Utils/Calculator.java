@@ -1,12 +1,4 @@
 package calc.rock.calculator.Utils;
-
-/**
- * Created by Administrator on 2/18/2017.
- */
-
-
-
-
 import android.util.Log;
 import android.widget.Toast;
 
@@ -18,11 +10,7 @@ import java.util.ArrayList;
 
 public class Calculator {
     public ArrayList<String> infix;
-    public BigDecimal number;
-    public BigDecimal answer;
-    public BigDecimal specialValue;
-    final static BigInteger HUNDRED = BigInteger.valueOf(100);
-
+    private BigDecimal number, answer, specialValue;
     public  Calculator()
     {
         infix = new ArrayList<String>();
@@ -30,9 +18,6 @@ public class Calculator {
 
     }
 
-    Exception sinException = new Exception(){
-
-    };
     public String equaltion(){
         infix.add(String.valueOf(Constants.BRACKET_CLOSE));
         ArrayList<String> postfix = infixToPostfix(infix);
@@ -91,11 +76,6 @@ public class Calculator {
                 i++;
             }
 
-            else if(s.equals(String.valueOf(Constants.COMMA))){
-                // Issue Expression
-            }
-
-
         }
         return postfix;
     }
@@ -145,32 +125,6 @@ public class Calculator {
             return Constants.ERROR;
         }
         return postfixStack.pop();
-    }
-
-    public double stringToDecimal(String num){
-
-
-        double n = 0.0;
-        boolean periodEnc = false;
-        int j = 1, k = 1;
-        for(int i=0; i<num.length(); i++){
-            if(i==0 && num.charAt(i) == '-'){
-                k = -1;
-            }
-            else if(num.charAt(i) == '.') {
-                if (periodEnc) {
-                    //Invalid number
-
-                    // TO DO: Clear everything
-                }
-                periodEnc = true;
-            }
-            else if (periodEnc)
-                n = n + ((int) num.charAt(i) -48) *Math.pow(10, -1 * (j++));
-            else
-                n = n * 10 + ((int) num.charAt(i) -48);
-        }
-        return n * k;
     }
 
     public String[] triangleFunc(String   inputNumber,String operator)//uses the sin, arcsin or sinh trig function according to the value of the inverse and hyperbolic flags
@@ -361,15 +315,15 @@ public class Calculator {
         return displayString;
     }
 
-    double asinh(double x)
+    private double asinh(double x)
     {
         return Math.log(x + Math.sqrt(x*x + 1.0));
     }
-    double atanh(double x)
+    private double atanh(double x)
     {
         return 0.5*Math.log( (x + 1.0) / (x - 1.0));
     }
-    double acosh(double x)
+    private double acosh(double x)
     {
         return Math.log(x + Math.sqrt(x*x - 1.0));
     }

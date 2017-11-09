@@ -15,49 +15,48 @@
         >
 
         <calc.rock.calculator.Customs.CustomOperatorButton1
-            android:text="@string/oper_mc"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:elevation="0dp"
-            android:layout_weight="1"
-            android:stateListAnimator="@null"
             android:id="@+id/bt_m_clear"
-            android:textSize="@dimen/big_font_size"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:alpha="0.7"
-            />
-
-        <calc.rock.calculator.Customs.CustomOperatorButton1
-            android:text="@string/oper_mplus"
-            android:textSize="@dimen/big_font_size"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
             android:elevation="0dp"
             android:stateListAnimator="@null"
+            android:text="@string/oper_mc"
+            android:textSize="@dimen/big_font_size" />
+
+        <calc.rock.calculator.Customs.CustomOperatorButton1
             android:id="@+id/bt_m_plus"
-            android:alpha="0.7"/>
-
-        <calc.rock.calculator.Customs.CustomOperatorButton1
-            android:text="@string/oper_mminus"
-            android:textSize="@dimen/big_font_size"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:alpha="0.7"
             android:elevation="0dp"
             android:stateListAnimator="@null"
+            android:text="@string/oper_mplus"
+            android:textSize="@dimen/big_font_size" />
+
+        <calc.rock.calculator.Customs.CustomOperatorButton1
             android:id="@+id/bt_m_minus"
-            android:alpha="0.7"/>
-
-        <calc.rock.calculator.Customs.CustomOperatorButton1
-            android:text="@string/oper_mrecord"
-            android:textSize="@dimen/big_font_size"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:alpha="0.7"
             android:elevation="0dp"
             android:stateListAnimator="@null"
+            android:text="@string/oper_mminus"
+            android:textSize="@dimen/big_font_size" />
+
+        <calc.rock.calculator.Customs.CustomOperatorButton1
             android:id="@+id/bt_m_read"
-            android:alpha="0.7"/>
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:alpha="0.7"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:text="@string/oper_mrecord"
+            android:textSize="@dimen/big_font_size" />
     </LinearLayout>
 
     <LinearLayout
@@ -66,64 +65,60 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         >
-        <calc.rock.calculator.Customs.CustomImageButton
-            android:layout_width="0dp"
-            android:textSize="@dimen/big_font_size"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:src="@drawable/ic_settings_black_24dp"
-            android:id="@+id/bt_setting" />
 
         <calc.rock.calculator.Customs.CustomImageButton
+            android:id="@+id/bt_setting"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:textSize="@dimen/big_font_size"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:elevation="0dp"
+            android:src="@drawable/ic_settings_black_24dp"
             android:stateListAnimator="@null"
+            android:textSize="@dimen/big_font_size" />
+
+        <calc.rock.calculator.Customs.CustomImageButton
+            android:id="@+id/bt_backspace"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="0dp"
             android:src="@drawable/ic_backspace_black_24dp"
-            android:id="@+id/bt_backspace" />
+            android:stateListAnimator="@null"
+            android:textSize="@dimen/big_font_size" />
 
         <calc.rock.calculator.Customs.CustomCButton
-            android:text="@string/oper_c"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:layout_weight="1"
             android:id="@+id/bt_clear"
-            android:textSize="@dimen/big_font_size" />
-        <calc.rock.calculator.Customs.CustomOperatorButton1
-            android:textSize="@dimen/big_font_size"
-            android:text="@string/oper_divid"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:elevation="0dp"
             android:layout_weight="1"
+            android:elevation="0dp"
             android:stateListAnimator="@null"
+            android:text="@string/oper_c"
+            android:textSize="@dimen/big_font_size" />
+
+        <calc.rock.calculator.Customs.CustomOperatorButton1
             android:id="@+id/bt_divide"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:alpha="0.7"
-            />
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:text="@string/oper_divid" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        >
-
-
-
+        android:orientation="horizontal">
         <calc.rock.calculator.Customs.CustomNumberButton
-            android:text="@string/oper_percentage"
+            android:id="@+id/bt_percentage"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:elevation="0dp"
             android:stateListAnimator="@null"
-            android:id="@+id/bt_percentage"
+            android:text="@string/oper_percentage"
             android:textSize="@dimen/big_font_size" />
         <calc.rock.calculator.Customs.CustomNumberButton
             android:text="@string/oper_brack1"
@@ -144,7 +139,6 @@
             android:id="@+id/bt_brack_close"
             android:textSize="@dimen/big_font_size" />
         <calc.rock.calculator.Customs.CustomOperatorButton1
-            android:textSize="@dimen/normal_font_size"
             android:text="@string/oper_multiple"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -349,8 +343,4 @@
     </LinearLayout>
 
 
-    <View
-        android:layout_width = "match_parent"
-        android:id="@+id/normal_bottom_color"
-        android:layout_height="5dp"></View>
 </LinearLayout>

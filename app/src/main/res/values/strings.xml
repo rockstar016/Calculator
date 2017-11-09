@@ -20,11 +20,11 @@
     <string name="oper_mplus">m+</string>
     <string name="oper_mminus">m-</string>
     <string name="oper_mrecord">mr</string>
-    <string name="oper_divid">÷</string>
-    <string name="oper_multiple">X</string>
-    <string name="oper_minus">-</string>
-    <string name="oper_plus">+</string>
-    <string name="oper_equals">=</string>
+    <string name="oper_divid"> ÷ </string>
+    <string name="oper_multiple">x</string>
+    <string name="oper_minus"> - </string>
+    <string name="oper_plus"> + </string>
+    <string name="oper_equals"> = </string>
 
 
     <string name="sin">sin</string>
@@ -78,6 +78,8 @@
     <string name="theme">THEME</string>
 
     <string name="admob_interstitial_id">ca-app-pub-7505360572028906/6626107670</string>
+    <string name="very_fast_and_simple">Very fast and simple</string>
+    <string name="calculator">Calculator</string>
     <!--<string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>-->
 
 </resources>

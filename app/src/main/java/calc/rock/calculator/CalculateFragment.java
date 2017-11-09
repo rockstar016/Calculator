@@ -5,10 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +17,13 @@ import com.google.android.gms.ads.InterstitialAd;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import calc.rock.calculator.Customs.CustomMemoryTextView;
 import calc.rock.calculator.Customs.CustomNumberTextView;
-import calc.rock.calculator.Database.HistoryModel;
+import calc.rock.calculator.Models.HistoryModel;
 import calc.rock.calculator.HomeScreen.CalculatorInterface;
 import calc.rock.calculator.HomeScreen.NormalCalculator;
 import calc.rock.calculator.HomeScreen.ScientficCalculator;
@@ -32,75 +31,70 @@ import calc.rock.calculator.Utils.Calculator;
 import calc.rock.calculator.Utils.Constants;
 import calc.rock.calculator.Utils.ThemeManagement;
 
-import static calc.rock.calculator.R.id.result;
 import static calc.rock.calculator.R.id.txt_current_value;
 
 public class CalculateFragment extends Fragment implements CalculatorInterface {
     CustomMemoryTextView    txt_mr_view;
     CustomNumberTextView    txt_current_view, txt_input_view;
     SharedPreferences       prefs;
-    String                  commaString="";
-    String                  mem_Value;
+    String                  commaString="", mem_Value, specialpowNumber;
     Calculator              calc;
-    boolean                 numberInput;
-    boolean                 equalclicked;
     Vibrator                vi;
-    boolean                 specialClicked;
-    boolean                 percentageClicked;
-    boolean                 specialPowNClicked;
-    String                  specialpowNumber;
-    int                     vibration;
-    int                     seperator;
+    boolean                 specialClicked, percentageClicked, specialPowNClicked, numberInput, equalclicked;
+    int                     vibration, seperator;
     BigDecimal              memValue;
-    private InterstitialAd interstitial = null;
-
-    //additional data
-
     View view;
     HistoryInterface historyInterface;
+
+    public CalculateFragment()
+    {
+
+    }
+
+    public static CalculateFragment newInstance() {
+        CalculateFragment fragment = new CalculateFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         view = inflater.inflate(R.layout.fragment_calculator, container, false);
-
-
         Runtime.getRuntime().maxMemory();
         initControls();
         loadStyles();
         loadCurrentCalculator();
         init();
-
         return view;
     }
 
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        finish();
-//        System.runFinalizersOnExit(true);
-//        android.os.Process.killProcess(android.os.Process
-//                .myPid());
-//        System.exit(0);
-//
-//    }
-
-
-
-
     public void loadCurrentCalculator(){
         if(ThemeManagement.getCalculator(getContext(),Constants.CURRENT_CALCULATOR) == Constants.NORMAL_CALC){
-            attachFragment(NormalCalculator.newInstance("",""));
+            attachFragment(NormalCalculator.newInstance());
         }
         else{
-            attachFragment(ScientficCalculator.newInstance("",""));
+            attachFragment(ScientficCalculator.newInstance());
         }
     }
-
-
 
     private void initControls(){
         txt_mr_view = (CustomMemoryTextView)view. findViewById(R.id.txt_memory_view);
         txt_current_view = (CustomNumberTextView)view. findViewById(txt_current_value);
         txt_input_view = (CustomNumberTextView)view. findViewById(R.id.txt_input_value);
+
+        txt_input_view.setMinTextSize(20);
+        txt_input_view.setMaxTextSize(38);
+
+        txt_current_view.setMinTextSize(18);
+        txt_current_view.setMaxTextSize(23);
+
         numberInput = false;
         calc  = new Calculator();
         mem_Value = "";
@@ -120,8 +114,6 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         txt_current_view.setTheme(currentTheme);
 
     }
-
-
 
     private void attachFragment(Fragment f){
         if (f != null) {
@@ -148,9 +140,6 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         }
         if(specialClicked)
             return;
-
-
-
         inputStr = txt_input_view.getText().toString();
         equationString = txt_current_view.getText().toString();
         if(!equationString.isEmpty() && percentageClicked)
@@ -162,34 +151,22 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
                 return;
         }
 
-
         if(seperator == 1)
         {
-
-
             if(!commaString.isEmpty()&& (inputStr.indexOf(Constants.DOT_POINT)== -1))
             {
-
                 String formatInputNumber = getDecimalFormattedString(commaString + inputNumber);
-                if(!inputStr.isEmpty())
-                {
-                    if(inputStr.charAt(0) == Constants.MINUS)
-                        formatInputNumber  = Constants.MINUS + formatInputNumber;
-                }
+                if(!inputStr.isEmpty() && inputStr.charAt(0) == Constants.MINUS)
+                    formatInputNumber  = Constants.MINUS + formatInputNumber;
 
                 txt_input_view.setText(formatInputNumber);
-            }else
-            {
-
-                txt_input_view.append(inputNumber);
             }
-
-
-
-        }else
-        {
-            txt_input_view.append(inputNumber);
+            else
+                txt_input_view.append(inputNumber);
         }
+        else
+            txt_input_view.append(inputNumber);
+
         commaString +=inputNumber;
         if(vibration == 1)
         {
@@ -209,12 +186,11 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         else
             calc.infix.add(inputNumber);
         numberInput = true;
-
-
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(Context context)
+    {
         super.onAttach(context);
         if(context instanceof HistoryInterface)
         {
@@ -222,9 +198,11 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         }
     }
 
-    public interface HistoryInterface{
+    interface HistoryInterface
+    {
         void updateHistoryModel(HistoryModel model);
     }
+
     public void onClickOperationButton(char operation)
     {
         String  inputString,equationString;
@@ -264,8 +242,6 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
                         txt_input_view.setText("");
                         return;
                     }
-
-
                 }else
                 {
                     equalclicked = false;
@@ -292,51 +268,35 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
                     return;
                 if(!(operation == Constants.CLEAR || operation == Constants.BACKSPACE))
                 {
-                    //if()
-                    {
-                        calculator_POWN(inputString);
-                        equationString = txt_current_view.getText().toString();
-                        inputString = "";
-
-
-                    }
-                }
-
-
-            }
-        }else
-        {
-
-            if(operation == Constants.BRACKET_OPEN || operation == Constants.CLEAR)
-            {
-
-            }else
-            {
-                if(!equationString.isEmpty())
-                {
-                    if(specialPowNClicked)
-                    {
-                        int index = equationString.lastIndexOf(String.valueOf(Constants.BRACKET_OPEN));
-                        equationString = equationString.substring(0,index);
-                        equationString +=specialpowNumber;
-                        specialpowNumber = "";
-                        specialPowNClicked = false;
-                        if(calc.infix.size() > 2)
-                        {
-                            calc.infix.remove(calc.infix.size() - 1);
-                        }
-
-                    }else if(equationString.charAt(equationString.length() - 1) != Constants.BRACKET_CLOSE)
-                        return;
-                }else {
-                    return;
+                    calculator_POWN(inputString);
+                    equationString = txt_current_view.getText().toString();
+                    inputString = "";
                 }
             }
-
-
-
-
         }
+        else if(operation != Constants.BRACKET_OPEN && operation != Constants.CLEAR)
+        {
+            if(!equationString.isEmpty())
+            {
+                if(specialPowNClicked)
+                {
+                    int index = equationString.lastIndexOf(String.valueOf(Constants.BRACKET_OPEN));
+                    equationString = equationString.substring(0,index);
+                    equationString +=specialpowNumber;
+                    specialpowNumber = "";
+                    specialPowNClicked = false;
+                    if(calc.infix.size() > 2)
+                    {
+                        calc.infix.remove(calc.infix.size() - 1);
+                    }
+
+                }else if(equationString.charAt(equationString.length() - 1) != Constants.BRACKET_CLOSE)
+                    return;
+            }else {
+                return;
+            }
+        }
+
         if(vibration == 1){
             vi.vibrate(120);
         }
@@ -409,7 +369,7 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
             {
                 try{
                     inputString = inputString + Constants.DIVIDE ;
-                    txt_current_view.setText(equationString + inputString);
+                    txt_current_view.setText(String.format(Locale.getDefault(), "%s%s", equationString,inputString));
                     txt_input_view.setText("");
                 }catch (Exception e){
                     txt_current_view.setText(Constants.ERROR);
@@ -421,21 +381,21 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
             case Constants.MUL:
             {
                 inputString += Constants.MUL;
-                txt_current_view.setText(equationString + inputString);
+                txt_current_view.setText(String.format(Locale.getDefault(), "%s%s", equationString,inputString));
                 txt_input_view.setText("");
             }
             break;
             case Constants.PLUS:
             {
                 inputString += Constants.PLUS;
-                txt_current_view.setText(equationString + inputString);
+                txt_current_view.setText(String.format(Locale.getDefault(), "%s%s", equationString,inputString));
                 txt_input_view.setText("");
             }
             break;
             case Constants.MINUS:
             {
                 inputString += Constants.MINUS;
-                txt_current_view.setText(equationString + inputString);
+                txt_current_view.setText(String.format(Locale.getDefault(), "%s%s", equationString,inputString));
                 txt_input_view.setText("");
             }
             break;
@@ -458,8 +418,7 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
                     inputString = String.valueOf(result);
                     percentageClicked = true;
                     calc.infix.set(calc.infix.size()-1,inputString);
-                    txt_current_view.setText(equationString + inputString);
-
+                    txt_current_view.setText(String.format(Locale.getDefault(), "%s%s", equationString,inputString));
                     txt_input_view.setText(inputString);
                     commaString = "";
                     return;
@@ -525,7 +484,7 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
                     return;
 
                 inputString += Constants.BRACKET_CLOSE;
-                txt_current_view.setText(equationString + inputString);
+                txt_current_view.setText(String.format(Locale.getDefault(), "%s%s", equationString, inputString));
                 txt_input_view.setText("");
             }
             break;
@@ -561,7 +520,7 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
 
         String inputNumber = txt_input_view.getText().toString();
         inputNumber = inputNumber.replaceAll(String.valueOf(Constants.COMMA),"");
-        if(operation == Constants.PI)
+        if(operation.equalsIgnoreCase(Constants.PI))
         {
             if(calc.infix.size() > 1)
             {
@@ -577,7 +536,7 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
             return;
         String[] displayString = new String[2];
 
-        if(operation == Constants.POW_N)
+        if(operation.equalsIgnoreCase(Constants.POW_N))
         {
             specialpowNumber = inputNumber;
             specialPowNClicked = true;
@@ -588,11 +547,10 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
 
         }else
         {
-
-            if(operation == Constants.POWE)
+            if(operation.equalsIgnoreCase(Constants.POWE))
             {
                 BigDecimal  specialResult = new BigDecimal(Math.E,MathContext.DECIMAL64);
-                BigDecimal  specialValue = new BigDecimal(1,MathContext.DECIMAL64);
+                BigDecimal  specialValue;
                 int n;
                 try {
                     n = Integer.valueOf(inputNumber);
@@ -606,33 +564,29 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
                 calc.infix.set(calc.infix.size()-1,specialValue.toString());
                 displayString[1] = specialValue.toString();
                 displayString[0]  = Constants.POWE + String.valueOf(Constants.BRACKET_OPEN )  + inputNumber +String.valueOf(Constants.BRACKET_CLOSE);
-            }else if(operation != Constants.PI)
+            }
+            else if(!operation.equals(Constants.PI))
             {
                 displayString =  calc.triangleFunc(inputNumber,operation);
-
-            }else
+            }
+            else
             {
                 displayString[1] = inputNumber;
                 displayString[0] = String.valueOf(Constants.BRACKET_OPEN )  + Constants.PI + String.valueOf(Constants.BRACKET_CLOSE);
                 calc.infix.add(inputNumber);
             }
-
             specialClicked = true;
-
         }
         txt_current_view.append(displayString[0]);
         txt_input_view.setText(displayString[1]);
-        Log.d("equation", displayString[0]);
-        Log.d("equation", displayString[1]);
-        //historyInterface.updateHistoryModel(new HistoryModel("", new Date(), displayString[0], displayString[1]));
         commaString="";
         if(vibration == 1){
             vi.vibrate(120);
         }
-
     }
 
-    public String getDecimalFormattedString(String number){
+    public String getDecimalFormattedString(String number)
+    {
         StringBuilder strB = new StringBuilder();
         strB.append(number);
         int Three = 0;
@@ -647,6 +601,7 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         }
         return strB.toString();
     }
+
     public boolean  isNumberic(String paramString)
     {
         int     i;
@@ -657,9 +612,7 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
             if(i == Character.getNumericValue(ch))
                 break;
         }
-        if( i >= Constants.MAX_NUM)
-            return false;
-        return true;
+        return i < Constants.MAX_NUM;
     }
 
     public void onClickMemoryKeyButton(String inputMemkey)
@@ -671,7 +624,6 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
             {
                 if(txt_input_view.getText().toString().equals(Constants.ERROR))
                     return;
-
                 if(mem_Value.isEmpty())
                     return;
                 mem_Value = mem_Value.replaceAll(String.valueOf(Constants.COMMA),"");
@@ -680,7 +632,7 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
                 int mem_textColor = prefs.getInt(Constants.PRIMARY_COLOR, Constants.RES_PRIMARYCOLOR);
                 txt_mr_view.setTextColor(mem_textColor);
                 String formatString = getFormatString(memValue.toString());
-                txt_mr_view.setText( "M " + formatString);
+                txt_mr_view.setText(String.format(Locale.getDefault(), "M %s", formatString));
             }
             break;
             case  Constants.MEM_MINUS:
@@ -692,7 +644,7 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
                 memValue = memValue.subtract(temp,MathContext.DECIMAL64);
                 txt_mr_view.setText("");
                 String formatString = getFormatString(memValue.toString());
-                txt_mr_view.setText("M " + formatString);
+                txt_mr_view.setText(String.format(Locale.getDefault(), "M %s", formatString));
             }
             break;
             case  Constants.MEM_READ:
@@ -732,18 +684,16 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         if(vibration == 1)
             vi.vibrate(120);
     }
+
     public void onClickEqualButton()
     {
         if(txt_input_view.getText().toString().equals(Constants.NOTHING))
             return;
         equalclicked = true;
         String  equationString;
-        String  temp;
         equationString = txt_current_view.getText().toString();
-        Log.d("equation", equationString);
-        Log.d("equation", txt_input_view.getText().toString());
-        String equation = null;
-        if(specialClicked == false){
+        String equation;
+        if(!specialClicked){
             equation = equationString + txt_input_view.getText().toString();
             if(specialPowNClicked)
                 equation = equation.substring(1);
@@ -752,7 +702,6 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
             equation = equationString;
 
         Date date = new Date();
-
         int bracketOpenCount = equationString.length() - equationString.replace("(", "").length();
         int bracketCloseCount = equationString.length() - equationString.replace(")", "").length();
         if(bracketCloseCount != bracketOpenCount)
@@ -760,40 +709,34 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
             if(specialPowNClicked)
             {
                 calculator_POWN(txt_input_view.getText().toString());
-
-            }else
+            }
+            else
             {
                 init();
                 txt_input_view.setText(Constants.ERROR);
                 return;
             }
-
         }
         if(vibration == 1)
         {
             vi.vibrate(120);
         }
-
         String result = calc.equaltion();
-
-        Log.d("result", result);
         txt_current_view.setText("");
         if(result.equals(Constants.ERROR))
         {
             commaString = "";
-        }else
+        }
+        else
         {
             if(seperator == 1)
             {
                 result = getFormatString(result);
-
             }
             commaString = result;
         }
         HistoryModel new_history = new HistoryModel("", date, equation, result);
         historyInterface.updateHistoryModel(new_history);
-//        HomeActivity.buffer.add(new_history);
-//        HomeActivity.recyclerViewAdapter.notifyDataSetChanged();
         txt_input_view.setText(result);
         if(result.equals(Constants.ERROR))
         {
@@ -818,9 +761,8 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         specialPowNClicked = false;
         specialClicked = false;
         txt_current_view.setText("");
-
-
     }
+
     public void calculator_POWN(String inputString)
     {
         if(inputString.isEmpty())
@@ -842,17 +784,17 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
         txt_current_view.setText(equationString);
         specialPowNClicked = false;
     }
+
     public String getFormatString(String result)
     {
         String temp;
         if(!result.contains("E"))
         {
-            String     sign = "";
+            String sign = "";
             if(result.contains("."))
             {
                 int index = result.indexOf(String.valueOf(Constants.DOT_POINT));
                 temp = result.substring(0,index);
-
                 if(temp.charAt(0) == Constants.MINUS)
                 {
                     temp = temp.substring(1,temp.length());
@@ -862,15 +804,14 @@ public class CalculateFragment extends Fragment implements CalculatorInterface {
                 temp = getDecimalFormattedString(temp);
                 temp += result;
                 result = sign + temp;
-
-
-            }else if(result.charAt(0) == Constants.MINUS)
+            }
+            else if(result.charAt(0) == Constants.MINUS)
             {
                 temp = result.substring(1,result.length());
                 temp = getDecimalFormattedString(temp);
                 result = Constants.MINUS + temp;
-
-            }else
+            }
+            else
             {
                 result = getDecimalFormattedString(result);
             }

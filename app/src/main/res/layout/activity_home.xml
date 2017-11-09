@@ -8,10 +8,6 @@
     android:orientation="vertical"
     tools:context="calc.rock.calculator.HomeActivity">
 
-
-
-
-
     <calc.rock.calculator.Customs.CustomMemoryTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

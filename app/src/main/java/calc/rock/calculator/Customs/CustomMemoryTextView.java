@@ -10,7 +10,7 @@ import android.widget.TextView;
  * Created by rock on 2/12/17.
  */
 
-public class CustomMemoryTextView extends TextView {
+public class CustomMemoryTextView extends android.support.v7.widget.AppCompatTextView {
     public CustomMemoryTextView(Context context) {
         super(context);
     }
@@ -21,11 +21,6 @@ public class CustomMemoryTextView extends TextView {
 
     public CustomMemoryTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public CustomMemoryTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     public void setTheme(int theme){

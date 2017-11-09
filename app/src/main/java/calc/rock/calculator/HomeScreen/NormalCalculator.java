@@ -2,6 +2,7 @@ package calc.rock.calculator.HomeScreen;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -17,47 +18,28 @@ import calc.rock.calculator.Customs.CustomImageButton;
 import calc.rock.calculator.Customs.CustomNumberButton;
 import calc.rock.calculator.Customs.CustomOperatorButton1;
 import calc.rock.calculator.R;
+import calc.rock.calculator.SettingActivity;
 import calc.rock.calculator.Utils.Constants;
 import calc.rock.calculator.Utils.ThemeManagement;
 
 public class NormalCalculator extends BaseFragment {
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//    // TODO: Rename and change types of parameters
-
-
-    CustomCButton bt_clear;
+    CustomCButton bt_clear;//
     CustomOperatorButton1 bt_m_r, bt_m_c, bt_m_plus, bt_m_minus, bt_divide, bt_multi, bt_minus,bt_plus, bt_equals;
-
-
     CustomNumberButton bt_percentage, bt_brack_open, bt_brack_close,
             bt_num_7, bt_num_8, bt_num_9, bt_num_4, bt_num_5, bt_num_6, bt_num_1, bt_num_2, bt_num_3, bt_sign, bt_num_0, bt_point;
     CustomImageButton bt_setting,bt_backspace;
-
-    View normal_bottom_color;
-
     LinearLayout    memoryKey;
     int             vibration;
-
-    CalculatorInterface parent, parentFragment;
     public NormalCalculator() {
 
     }
 
-    public static NormalCalculator newInstance(String param1, String param2) {
+    public static NormalCalculator newInstance() {
         NormalCalculator fragment = new NormalCalculator();
         Bundle args = new Bundle();
 
         fragment.setArguments(args);
         return fragment;
-    }
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        parentFragment = (CalculatorInterface)getParentFragment();
     }
 
     @Override
@@ -73,6 +55,14 @@ public class NormalCalculator extends BaseFragment {
     }
 
     public void initEventListener(){
+        bt_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent i = new Intent(getActivity(), SettingActivity.class);
+                startActivity(i);
+            }
+        });
+
         bt_num_0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -242,57 +232,82 @@ public class NormalCalculator extends BaseFragment {
                 parentFragment.onClickEqualButton();
             }
         });
-
-
-//        Vibrator vi = (Vibrator)getSy stemService(Context.VIBRATOR_SERVICE);
-//        vi.vibrate(intensity[1],-1);
-
-
     }
     @Override
     protected void initControls(View rootView) {
         super.initControls(rootView);
         bt_m_r = (CustomOperatorButton1)rootView.findViewById(R.id.bt_m_read);
+        bt_m_r.setTextSize(24);
         bt_m_c = (CustomOperatorButton1)rootView.findViewById(R.id.bt_m_clear);
+        bt_m_c.setTextSize(24);
         bt_m_plus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_m_plus);
+        bt_m_plus.setTextSize(24);
         bt_m_minus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_m_minus);
+        bt_m_minus.setTextSize(24);
+
         bt_setting = (CustomImageButton) rootView.findViewById(R.id.bt_setting);
         bt_backspace = (CustomImageButton) rootView.findViewById(R.id.bt_backspace);
         bt_clear = (CustomCButton) rootView.findViewById(R.id.bt_clear);
+        bt_clear.setTextSize(24);
         bt_divide = (CustomOperatorButton1)rootView.findViewById(R.id.bt_divide);
+        bt_divide.setTextSize(24);
         bt_percentage = (CustomNumberButton)rootView.findViewById(R.id.bt_percentage);
+        bt_percentage.setTextSize(24);
         bt_brack_open = (CustomNumberButton)rootView.findViewById(R.id.bt_brack_open);
+        bt_brack_open.setTextSize(24);
         bt_brack_close = (CustomNumberButton)rootView.findViewById(R.id.bt_brack_close);
+        bt_brack_close.setTextSize(24);
         bt_multi = (CustomOperatorButton1)rootView.findViewById(R.id.bt_multiple);
-        bt_num_7 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_7);
-        bt_num_8 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_8);
-        bt_num_9 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_9);
-        bt_num_4 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_4);
-        bt_num_5 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_5);
-        bt_num_6 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_6);
-        bt_num_0 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_0);
-        bt_num_1 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_1);
-        bt_num_2 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_2);
-        bt_num_3 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_3);
-        bt_equals = (CustomOperatorButton1)rootView.findViewById(R.id.bt_equal);
-        bt_sign = (CustomNumberButton)rootView.findViewById(R.id.bt_plus_minus);
-        bt_plus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_num_plus);
-        bt_minus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_num_minus);
-        bt_point = (CustomNumberButton)rootView.findViewById(R.id.bt_point);
-        memoryKey = (LinearLayout)rootView.findViewById(R.id.memorykey);
-        normal_bottom_color = (View)rootView.findViewById(R.id.normal_bottom_color);
+        bt_multi.setTextSize(24);
 
+        bt_num_7 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_7);
+        bt_num_7.setTextSize(24);
+        bt_num_8 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_8);
+        bt_num_8.setTextSize(24);
+        bt_num_9 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_9);
+        bt_num_9.setTextSize(24);
+        bt_num_4 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_4);
+        bt_num_4.setTextSize(24);
+        bt_num_5 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_5);
+        bt_num_5.setTextSize(24);
+        bt_num_6 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_6);
+        bt_num_6.setTextSize(24);
+        bt_num_0 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_0);
+        bt_num_0.setTextSize(24);
+        bt_num_1 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_1);
+        bt_num_1.setTextSize(24);
+        bt_num_2 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_2);
+        bt_num_2.setTextSize(24);
+        bt_num_3 = (CustomNumberButton)rootView.findViewById(R.id.bt_num_3);
+        bt_num_3.setTextSize(24);
+        bt_equals = (CustomOperatorButton1)rootView.findViewById(R.id.bt_equal);
+        bt_equals.setTextSize(24);
+        bt_sign = (CustomNumberButton)rootView.findViewById(R.id.bt_plus_minus);
+        bt_sign.setTextSize(24);
+        bt_plus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_num_plus);
+        bt_plus.setTextSize(24);
+        bt_minus = (CustomOperatorButton1)rootView.findViewById(R.id.bt_num_minus);
+        bt_minus.setTextSize(24);
+        bt_point = (CustomNumberButton)rootView.findViewById(R.id.bt_point);
+        bt_point.setTextSize(24);
+        memoryKey = (LinearLayout)rootView.findViewById(R.id.memorykey);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         int initialShow = prefs.getInt(Constants.MEMORY_KEYS, 0);
         if(initialShow == 1)
             memoryKey.setVisibility(View.VISIBLE);
+        else
+            memoryKey.setVisibility(View.GONE);
         vibration = prefs.getInt(Constants.VIBRATION,0);
         if(vibration == 1)
         {
             Vibrator vi = (Vibrator)getContext().getSystemService(Context.VIBRATOR_SERVICE);
             vi.vibrate(120);
         }
-
     }
 
     @Override
@@ -305,14 +320,17 @@ public class NormalCalculator extends BaseFragment {
         bt_m_c.setTheme(text_style,background_style);
         bt_m_plus.setTheme(text_style,background_style);
         bt_m_minus.setTheme(text_style,background_style);
+        bt_divide.setTheme(text_style,background_style);
+        bt_multi.setTheme(text_style,background_style);
+        bt_equals.setTheme(text_style,background_style);
+        bt_plus.setTheme(text_style,background_style);
+        bt_minus.setTheme(text_style,background_style);
         bt_setting.setTheme(primary_style,background_style);
         bt_backspace.setTheme(primary_style,background_style);
         bt_clear.setTheme(text_style,background_style);
-        bt_divide.setTheme(text_style,background_style);
         bt_percentage.setTheme(text_style,background_style);
         bt_brack_open.setTheme(text_style,background_style);
         bt_brack_close.setTheme(text_style,background_style);
-        bt_multi.setTheme(text_style,background_style);
         bt_num_7.setTheme(text_style,background_style);
         bt_num_8.setTheme(text_style,background_style);
         bt_num_9.setTheme(text_style,background_style);
@@ -323,25 +341,7 @@ public class NormalCalculator extends BaseFragment {
         bt_num_1.setTheme(text_style,background_style);
         bt_num_2.setTheme(text_style,background_style);
         bt_num_3.setTheme(text_style,background_style);
-        bt_equals.setTheme(text_style,background_style);
         bt_sign.setTheme(text_style,background_style);
-        bt_plus.setTheme(text_style,background_style);
-        bt_minus.setTheme(text_style,background_style);
         bt_point.setTheme(text_style,background_style);
-        normal_bottom_color.setBackgroundColor(primary_style);
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if(context instanceof CalculatorInterface) {
-            parent = (CalculatorInterface)getActivity();
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        parent = null;
     }
 }

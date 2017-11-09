@@ -15,10 +15,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
-/**
- * Created by Administrator on 2/21/2017.
- */
-
 public class InterstitialActivity extends AppCompatActivity {
 
     InterstitialAd interstitial = null;
@@ -31,18 +27,11 @@ public class InterstitialActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder()
                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
-        // Prepare the Interstitial Ad
         interstitial = new InterstitialAd(InterstitialActivity.this);
-
-// Insert the Ad Unit ID
         interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
-
         interstitial.loadAd(adRequest);
-// Prepare an Interstitial Ad Listener
-
         interstitial.setAdListener(new AdListener() {
             public void onAdLoaded() {
-
                 try {
                     displayInterstitial();
                 } catch (Exception e) {
